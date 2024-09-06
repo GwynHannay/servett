@@ -22,7 +22,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: kubernetes-dashboard
-        namespace: kubernetes-dashboard
+        namespace: dashboards
       interval: 12h
   values:
     nginx:
