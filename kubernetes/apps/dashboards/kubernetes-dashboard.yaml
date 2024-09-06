@@ -28,7 +28,5 @@ spec:
     app:
       ingress:
         enabled: true
-        hosts:
-          - kube.int.lan
     nginx:
       enabled: false
