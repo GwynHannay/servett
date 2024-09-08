@@ -27,9 +27,12 @@ spec:
   values:
     app:
       ingress:
-        enabled: true
+        enabled: false
         useDefaultIngressClass: true
         hosts: []
         path: /dash
     nginx:
       enabled: false
+    kong:
+      proxy:
+        type: LoadBalancer
