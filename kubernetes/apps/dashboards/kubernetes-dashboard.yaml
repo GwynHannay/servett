@@ -28,5 +28,6 @@ spec:
     app:
       ingress:
         enabled: true
+        useDefaultIngressClass: true
     nginx:
       enabled: false
