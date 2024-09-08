@@ -29,5 +29,7 @@ spec:
       ingress:
         enabled: true
         useDefaultIngressClass: true
+        hosts: []
+        path: /dash
     nginx:
       enabled: false
