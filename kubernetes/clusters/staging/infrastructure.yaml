@@ -30,6 +30,10 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./kubernetes/infrastructure/configs
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   postBuild:
     substituteFrom:
       - kind: Secret
