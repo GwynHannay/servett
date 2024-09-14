@@ -63,4 +63,4 @@ metadata:
   namespace: dashboards
   annotations:
     kubernetes.io/service-account.name: "kube-dashboard-admin-user"   
-type: kubernetes.io/service-account-token  
+type: kubernetes.io/service-account-token

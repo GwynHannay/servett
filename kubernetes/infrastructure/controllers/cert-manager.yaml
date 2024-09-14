@@ -1,35 +1,134 @@
----
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cert-manager
-  labels:
-    toolkit.fluxcd.io/tenant: sre-team
+    name: cert-manager
+    labels:
+        toolkit.fluxcd.io/tenant: sre-team
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCQnZBQXAwMi9jL1NCdThh
+            d2JQL3dYeVhQck1qelNmRFVkcDBjUWFqZkRZCkNBUUpYSDVhMnlXbHFpNStlVFRq
+            Mkd4S01zWkVUajEvVW44VHVSZXlLNFkKLS0tIEh0Q1ZlLzNqNEZGUUJId1hQdjBM
+            QjVuUjJITlh3Y3IxcnZnSUt6SWN5elUKjta6sdAODnsd8578KPu0bECawOsbZxA8
+            /qZUEaX7W4C4N9kqAcku9eHGVbuW6No/n8nh8xQQhYpwNno1IerXMw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-14T20:57:01Z"
+    mac: ENC[AES256_GCM,data:T3oR4P3ZAFOR4Y3wrV7jDHmAAESzgpZPF4jBlagZOu+lrakXCjViPL0fNlLRUExgzqcY1BycRasPgGaR5EYFgdxsQaKNl1sedtWAQG7JVdciZ7sKOALqxctSRcB2k3Sf2Vg9UQbvJkh4FMS6qihHHj2hWeoxIifXMekKeJ0zyDQ=,iv:3qUU29ZHu7Hixyz/eCUR4ayiskpdI9C6O5Tr9KC/QmU=,tag:BmRSSim87qQ+kTRKDq1R0g==,type:str]
+    pgp: []
+    encrypted_regex: ^(email|dnsZones)$
+    version: 3.9.0
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: cert-manager
-  namespace: cert-manager
+    name: cert-manager
+    namespace: cert-manager
 spec:
-  interval: 24h
-  url: https://charts.jetstack.io
+    interval: 24h
+    url: https://charts.jetstack.io
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCQnZBQXAwMi9jL1NCdThh
+            d2JQL3dYeVhQck1qelNmRFVkcDBjUWFqZkRZCkNBUUpYSDVhMnlXbHFpNStlVFRq
+            Mkd4S01zWkVUajEvVW44VHVSZXlLNFkKLS0tIEh0Q1ZlLzNqNEZGUUJId1hQdjBM
+            QjVuUjJITlh3Y3IxcnZnSUt6SWN5elUKjta6sdAODnsd8578KPu0bECawOsbZxA8
+            /qZUEaX7W4C4N9kqAcku9eHGVbuW6No/n8nh8xQQhYpwNno1IerXMw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-14T20:57:01Z"
+    mac: ENC[AES256_GCM,data:T3oR4P3ZAFOR4Y3wrV7jDHmAAESzgpZPF4jBlagZOu+lrakXCjViPL0fNlLRUExgzqcY1BycRasPgGaR5EYFgdxsQaKNl1sedtWAQG7JVdciZ7sKOALqxctSRcB2k3Sf2Vg9UQbvJkh4FMS6qihHHj2hWeoxIifXMekKeJ0zyDQ=,iv:3qUU29ZHu7Hixyz/eCUR4ayiskpdI9C6O5Tr9KC/QmU=,tag:BmRSSim87qQ+kTRKDq1R0g==,type:str]
+    pgp: []
+    encrypted_regex: ^(email|dnsZones)$
+    version: 3.9.0
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cert-manager
-  namespace: cert-manager
+    name: cert-manager
+    namespace: cert-manager
 spec:
-  interval: 30m
-  chart:
-    spec:
-      chart: cert-manager
-      version: "1.x"
-      sourceRef:
-        kind: HelmRepository
-        name: cert-manager
-        namespace: cert-manager
-      interval: 12h
-  values:
-    installCRDs: true
+    interval: 30m
+    chart:
+        spec:
+            chart: cert-manager
+            version: 1.x
+            sourceRef:
+                kind: HelmRepository
+                name: cert-manager
+                namespace: cert-manager
+            interval: 12h
+    values:
+        installCRDs: true
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCQnZBQXAwMi9jL1NCdThh
+            d2JQL3dYeVhQck1qelNmRFVkcDBjUWFqZkRZCkNBUUpYSDVhMnlXbHFpNStlVFRq
+            Mkd4S01zWkVUajEvVW44VHVSZXlLNFkKLS0tIEh0Q1ZlLzNqNEZGUUJId1hQdjBM
+            QjVuUjJITlh3Y3IxcnZnSUt6SWN5elUKjta6sdAODnsd8578KPu0bECawOsbZxA8
+            /qZUEaX7W4C4N9kqAcku9eHGVbuW6No/n8nh8xQQhYpwNno1IerXMw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-14T20:57:01Z"
+    mac: ENC[AES256_GCM,data:T3oR4P3ZAFOR4Y3wrV7jDHmAAESzgpZPF4jBlagZOu+lrakXCjViPL0fNlLRUExgzqcY1BycRasPgGaR5EYFgdxsQaKNl1sedtWAQG7JVdciZ7sKOALqxctSRcB2k3Sf2Vg9UQbvJkh4FMS6qihHHj2hWeoxIifXMekKeJ0zyDQ=,iv:3qUU29ZHu7Hixyz/eCUR4ayiskpdI9C6O5Tr9KC/QmU=,tag:BmRSSim87qQ+kTRKDq1R0g==,type:str]
+    pgp: []
+    encrypted_regex: ^(email|dnsZones)$
+    version: 3.9.0
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt-staging
+spec:
+    acme:
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        email: ENC[AES256_GCM,data:lUu9h/Blp89FGGmj4WKo73I=,iv:+P8iEh+kN2ki3mMR3XLZnt4d5mbbmHUb17lhgrmt5u4=,tag:oPxON+ieV1IJzvclY25rOQ==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt-staging
+        solvers:
+            - dns01:
+                cloudflare:
+                    apiTokenSecretRef:
+                        name: cert-manager-secret
+                        key: api-token
+              selector:
+                dnsZones:
+                    - ENC[AES256_GCM,data:B8ybgGwX23/IEA==,iv:tGnp3QfVQpija3RnqOFkKV6f68SebFaiZSN++f8BrCc=,tag:kMYMSS9sNwLO/O2won1pjA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCQnZBQXAwMi9jL1NCdThh
+            d2JQL3dYeVhQck1qelNmRFVkcDBjUWFqZkRZCkNBUUpYSDVhMnlXbHFpNStlVFRq
+            Mkd4S01zWkVUajEvVW44VHVSZXlLNFkKLS0tIEh0Q1ZlLzNqNEZGUUJId1hQdjBM
+            QjVuUjJITlh3Y3IxcnZnSUt6SWN5elUKjta6sdAODnsd8578KPu0bECawOsbZxA8
+            /qZUEaX7W4C4N9kqAcku9eHGVbuW6No/n8nh8xQQhYpwNno1IerXMw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-14T20:57:01Z"
+    mac: ENC[AES256_GCM,data:T3oR4P3ZAFOR4Y3wrV7jDHmAAESzgpZPF4jBlagZOu+lrakXCjViPL0fNlLRUExgzqcY1BycRasPgGaR5EYFgdxsQaKNl1sedtWAQG7JVdciZ7sKOALqxctSRcB2k3Sf2Vg9UQbvJkh4FMS6qihHHj2hWeoxIifXMekKeJ0zyDQ=,iv:3qUU29ZHu7Hixyz/eCUR4ayiskpdI9C6O5Tr9KC/QmU=,tag:BmRSSim87qQ+kTRKDq1R0g==,type:str]
+    pgp: []
+    encrypted_regex: ^(email|dnsZones)$
+    version: 3.9.0
