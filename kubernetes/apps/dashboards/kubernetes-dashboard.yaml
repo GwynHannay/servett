@@ -27,10 +27,10 @@ spec:
   values:
     app:
       ingress:
-        enabled: false
+        enabled: true
         useDefaultIngressClass: true
-        hosts: []
-        path: /dash
+        hosts: ["snap-dash.${SECRET_DOMAIN}"]
+        path: /
     nginx:
       enabled: false
     kong:
