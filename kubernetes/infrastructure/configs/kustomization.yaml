@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - address-pools.yaml
   - cluster-issuers.yaml
-  - dns-endspoints.yaml
+  - dns-endpoints.yaml
