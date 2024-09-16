@@ -28,17 +28,17 @@ spec:
     app:
       ingress:
         enabled: true
-        useDefaultIngressClass: true
         hosts: ["snap-dash.${SECRET_DOMAIN}"]
+        ingressClassName: nginx
         path: /
         issuer:
           name: letsencrypt-staging
           scope: cluster
     nginx:
       enabled: false
-    kong:
-      proxy:
-        type: LoadBalancer
+    # kong:
+    #   proxy:
+    #     type: LoadBalancer
 ---
 apiVersion: v1
 kind: ServiceAccount
