@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: staging-secrets
+    namespace: flux-system
+stringData:
+    SECRET_ACME_EMAIL: ENC[AES256_GCM,data:S/Xtc8Nok3ZHatlm2+U4cjs=,iv:yWgja8Vkk1S3jXMyng76eBoiziXq6FQ5NG6zB0OzrWI=,tag:TAbSo0t7M+rIS5wHmRNqPg==,type:str]
+    SECRET_DOMAIN: ENC[AES256_GCM,data:3z8uIp9YpcUxvw==,iv:fPSJpl35IXKVh04P3bhztoeDe6fxGs11sIaiNzyynQQ=,tag:sf0hrMtcu8HGx7vSYeT4Vw==,type:str]
+    CF_API_TOKEN: ENC[AES256_GCM,data:JvH22zVw71eH9wq0CrW7U1fu/8T922XSXOWkOghjOuM73F0e+nc0EQ==,iv:UOEpOE8TB+WQhYIjoq3tFoLfm1bS96GC1fGI3QeyhDE=,tag:11tCp5UFH6TQ1PpSFSRbgQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBNeFExbkVSbDhTMkxjS0c3
+            TVd2Q1lNZmFCdWswUDh5Z1I5ZTh4Z3FwMGpBCkdQOVBBM2lGZ2NPN29XUTBwSFlh
+            ZlBycFFQbzRxaExnRVhNU3Y1MVJ0b1UKLS0tIFBCRUFWKytYZGVTSGIyeTBaNkZ0
+            akRaUlpFL2lyZ0VGMkRiVnp5dS9DSGMKjBVdW9wqONDkaoortRsk7cY4XITIFHqw
+            19Tj1wtpsk8BFxw0oMGb+XXgsVowVXKawow5YQsen4AbixuGSQwr8A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-09-19T23:45:07Z"
+    mac: ENC[AES256_GCM,data:a+6vQIM+0wS5WFmtB18HHLMAITMFMag7xHMXVdg6ZCcvPa5gjHCW10PjosujDtS6Gf5/3z0dJ79cBWX0loZJXMGwtH/KDI0BczbhkPvLVb82wkVgFQMguD2uX4+foTAOVAKvkjXmWKFsd1S0uKuGaa4wlCTsxxOqXqtKtbRXN1k=,iv:S/7weFLijW2p4l7JK0+HnZIHSyrSg4yC5Zhn/womK8A=,tag:GcZRZvMyvhkloizX1VCQoQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.0
