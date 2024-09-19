@@ -3,8 +3,3 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-patches:
-  - patch: |
-    target:
-      kind: Deployment
-      name: "(kustomize-controller|helm-controller)"
