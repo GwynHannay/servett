@@ -14,6 +14,8 @@ metadata:
   name: ingress-nginx
   namespace: ingress-nginx
 spec:
+  dependsOn:
+    - name: metallb
   interval: 30m
   chart:
     spec:
