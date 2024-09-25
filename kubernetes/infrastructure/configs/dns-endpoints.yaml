@@ -5,11 +5,11 @@ metadata:
   namespace: external-dns
 spec:
   endpoints:
-  - dnsName: "snap-ingress.${SECRET_DOMAIN}"
+  - dnsName: "${INGRESS_HOST}"
     recordTTL: 180
     recordType: A
     targets:
-    - 10.172.90.70
+    - "${INGRESS_IP}"
 ---
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
@@ -22,4 +22,4 @@ spec:
     recordTTL: 180
     recordType: CNAME
     targets:
-    - "snap-ingress.${SECRET_DOMAIN}"
+    - "${INGRESS_HOST}"

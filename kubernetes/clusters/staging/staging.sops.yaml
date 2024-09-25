@@ -7,6 +7,9 @@ stringData:
     SECRET_ACME_EMAIL: ENC[AES256_GCM,data:S/Xtc8Nok3ZHatlm2+U4cjs=,iv:yWgja8Vkk1S3jXMyng76eBoiziXq6FQ5NG6zB0OzrWI=,tag:TAbSo0t7M+rIS5wHmRNqPg==,type:str]
     SECRET_DOMAIN: ENC[AES256_GCM,data:3z8uIp9YpcUxvw==,iv:fPSJpl35IXKVh04P3bhztoeDe6fxGs11sIaiNzyynQQ=,tag:sf0hrMtcu8HGx7vSYeT4Vw==,type:str]
     CF_API_TOKEN: ENC[AES256_GCM,data:JvH22zVw71eH9wq0CrW7U1fu/8T922XSXOWkOghjOuM73F0e+nc0EQ==,iv:UOEpOE8TB+WQhYIjoq3tFoLfm1bS96GC1fGI3QeyhDE=,tag:11tCp5UFH6TQ1PpSFSRbgQ==,type:str]
+    IP_RANGE: ENC[AES256_GCM,data:Z8NNqaTSYsbVNkWhpjWOSQW2AnAwhDH/Yw==,iv:aUk2M9mqhM9SVa/rpOz7eTIT/4OQPOIVKnU7yW/M39g=,tag:mjDjNFnEgjAbByyYhc6C/A==,type:str]
+    INGRESS_IP: ENC[AES256_GCM,data:bnSQwrBmLY6fYGQk,iv:pdxXYxIGP7r/8YsiNtCLWKGgCSxmZF0wrrM1iW/GR6k=,tag:ZAmGNhPc02Iuc8P1etGCZw==,type:str]
+    INGRESS_HOST: ENC[AES256_GCM,data:oCXFACZCWeqpP2+jec11gN2rVQ6IbB8=,iv:4eaohckZ0PKrA/1KSOot/aFiT4k0cq594acVN2cyOyw=,tag:rDlvHrKLKqmzsJbKUZqNXA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -22,8 +25,8 @@ sops:
             akRaUlpFL2lyZ0VGMkRiVnp5dS9DSGMKjBVdW9wqONDkaoortRsk7cY4XITIFHqw
             19Tj1wtpsk8BFxw0oMGb+XXgsVowVXKawow5YQsen4AbixuGSQwr8A==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-19T23:45:07Z"
-    mac: ENC[AES256_GCM,data:a+6vQIM+0wS5WFmtB18HHLMAITMFMag7xHMXVdg6ZCcvPa5gjHCW10PjosujDtS6Gf5/3z0dJ79cBWX0loZJXMGwtH/KDI0BczbhkPvLVb82wkVgFQMguD2uX4+foTAOVAKvkjXmWKFsd1S0uKuGaa4wlCTsxxOqXqtKtbRXN1k=,iv:S/7weFLijW2p4l7JK0+HnZIHSyrSg4yC5Zhn/womK8A=,tag:GcZRZvMyvhkloizX1VCQoQ==,type:str]
+    lastmodified: "2024-09-25T21:18:00Z"
+    mac: ENC[AES256_GCM,data:lqksq4LslC6tUN/5dUsEzsopG9QrRGhI4F4RGjWSCDnt+XucZmBkgCxlr+mUY8jheQV4vtYApyUSQK41UbU0bw8BVb3FK5Lcd/ZTq52iHZXk0LaaVVn9j6J6+bHOMCxfY1XJMhGF3Js52FRy0VaeJ06ldaUSrq3njjf8wh8WZ3U=,iv:anpYV2rEmb+uv2I+0VORBPELd0WQp86bdLnfqseHQ9k=,tag:Q2D6gkQBvf9967BYKeBzHA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.9.0
