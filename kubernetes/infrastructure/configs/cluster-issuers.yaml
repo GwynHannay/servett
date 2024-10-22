@@ -18,3 +18,17 @@ spec:
         selector:
           dnsZones:
             - "${SECRET_DOMAIN}"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-wildcard-cert-staging
+  namespace: flux-system
+spec:
+  secretName: letsencrypt-wildcard-cert-staging
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  dnsNames:
+    - "${SECRET_DOMAIN}"
+    - "*.${SECRET_DOMAIN}"
