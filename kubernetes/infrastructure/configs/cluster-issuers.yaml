@@ -23,7 +23,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: letsencrypt-wildcard-cert-staging
-  namespace: flux-system
+  namespace: cert-manager
 spec:
   secretName: letsencrypt-wildcard-cert-staging
   issuerRef:
