@@ -36,9 +36,6 @@ spec:
           scope: cluster
     nginx:
       enabled: false
-    # kong:
-    #   proxy:
-    #     type: LoadBalancer
 ---
 apiVersion: v1
 kind: ServiceAccount
