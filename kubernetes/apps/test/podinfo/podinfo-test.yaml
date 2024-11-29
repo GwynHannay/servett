@@ -24,3 +24,4 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+      tls: []
