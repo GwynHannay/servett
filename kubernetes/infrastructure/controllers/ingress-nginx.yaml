@@ -25,5 +25,8 @@ spec:
         namespace: ingress-nginx
       interval: 12h
   values:
+    controller:
+      extraArgs:
+        default-ssl-certificate: "flux-system/letsencrypt-wildcard-cert-staging"
     admissionWebhooks:
       enabled: true
