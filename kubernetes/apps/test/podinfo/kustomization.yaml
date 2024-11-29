@@ -9,8 +9,8 @@ secretGenerator:
   - name: wildcard-cert
     namespace: test
     literals:
-      - tls.crt="${tls.crt}"
-      - tls.key="${tls.key}"
+      - tls.crt="${tls_crt}"
+      - tls.key="${tls_key}"
     type: "kubernetes.io/tls"
 configurations:
   - kustomizationconfig.yaml
