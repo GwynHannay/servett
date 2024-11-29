@@ -1,0 +1,29 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: test
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: podinfo
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+        namespace: flux-system
+      interval: 12h
+  values:
+    tls:
+      enabled: true
+      secretName: wildcard-cert
+    ingress:
+      enabled: true
+      className: nginx
+      hosts: 
+        - host: "snap-podinfo.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
