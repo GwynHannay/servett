@@ -38,6 +38,8 @@ spec:
     ingress:
       main:
         enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-staging
         className: nginx
         hosts:
           - host: &host "snap-home.${SECRET_DOMAIN}"
@@ -49,3 +51,4 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: *host
