@@ -1,4 +1,17 @@
 ---
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: homepage
+  namespace: external-dns
+spec:
+  endpoints:
+  - dnsName: "snap-home.${SECRET_DOMAIN}"
+    recordTTL: 180
+    recordType: CNAME
+    targets:
+    - "${INGRESS_HOST}"
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
