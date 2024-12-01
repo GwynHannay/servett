@@ -23,13 +23,9 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: letsencrypt-wildcard-cert-staging
-  namespace: flux-system
+  namespace: nginx
 spec:
   secretName: letsencrypt-wildcard-cert-staging
-  secretTemplate:
-    annotations:
-      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
