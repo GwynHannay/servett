@@ -50,7 +50,7 @@ spec:
 
     ingress:
       main:
-        enabled: false
+        enabled: true
         className: nginx
         hosts:
           - host: &host "snap-home.${SECRET_DOMAIN}"
@@ -59,3 +59,4 @@ spec:
                 service:
                   name: main
                   port: http
+        tls: []
