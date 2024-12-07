@@ -114,4 +114,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: homepage
-    namespace: self-hosted
+    namespace: test
