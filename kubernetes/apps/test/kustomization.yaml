@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./homepage/homepage.yaml
+  - ./homepage/homepage-configmap.yaml
+  - ./homepage/homepage-secrets.sops.yaml
