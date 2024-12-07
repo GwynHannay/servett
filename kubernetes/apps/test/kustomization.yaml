@@ -5,18 +5,18 @@ namespace: test
 resources:
   - ./namespace.yaml
   - ./homepage/homepage.yaml
-configMapGenerator:
-  - name: homepage-gen-config
-    files:
-      - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.yaml
-      - docker.yaml=./homepage/config-maps/homepage-docker.yaml
-      - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.yaml
-      - services.yaml=./homepage/config-maps/homepage-services.yaml
-      - settings.yaml=./homepage/config-maps/homepage-settings.yaml
-      - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
+# configMapGenerator:
+#   - name: homepage-gen-config
+#     files:
+#       - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.yaml
+#       - docker.yaml=./homepage/config-maps/homepage-docker.yaml
+#       - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.yaml
+#       - services.yaml=./homepage/config-maps/homepage-services.yaml
+#       - settings.yaml=./homepage/config-maps/homepage-settings.yaml
+#       - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
 secretGenerator:
   - name: homepage-gen-secrets
     files:
-      - values.yaml=./homepage/homepage-secrets.values.yaml
+      - values.yaml=./homepage/homepage-configmap.values.yaml
 configurations:
   - ./homepage/kustomizeconfig.yaml

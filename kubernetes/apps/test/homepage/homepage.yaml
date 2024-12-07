@@ -30,7 +30,7 @@ spec:
       interval: 30m
   valuesFrom:
     - kind: Secret
-      name: homepage-gen-secrets
+      name: homepage-gen-config
   values:
     controllers:
       main:
