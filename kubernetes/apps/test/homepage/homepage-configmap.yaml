@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: homepage-config
-  namespace: self-hosted
+  namespace: test
   labels:
     app.kubernetes.io/name: homepage
 data:
