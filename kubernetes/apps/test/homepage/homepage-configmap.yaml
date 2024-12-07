@@ -35,6 +35,11 @@ data:
       Bookmarks:
         style: row
         columns: 4
+      mediarr:
+        icon: mdi-projector
+        style: row
+        columns: 3
+        tab: Main
       monitoring:
         icon: mdi-glasses
         style: row
