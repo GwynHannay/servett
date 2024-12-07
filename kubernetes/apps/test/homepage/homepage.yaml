@@ -29,15 +29,11 @@ spec:
         namespace: flux-system
       interval: 30m
   valuesFrom:
-    - kind: ConfigMap
-      name: homepage-gen-config
     - kind: Secret
       name: homepage-gen-secrets
   values:
     controllers:
       main:
-        annotations:
-          reloader.stakater.com/auto: "true"
         containers:
           main:
             image:
@@ -72,23 +68,23 @@ spec:
         hostPath: /mnt/nas/homepage/
         globalMounts:
           - path: /app/public
-      # config:
-      #   enabled: true
-      #   type: configMap
-      #   name: homepage-config
-      #   globalMounts:
-      #     - subPath: bookmarks.yaml
-      #       path: /app/config/bookmarks.yaml
-      #     - subPath: docker.yaml
-      #       path: /app/config/docker.yaml
-      #     - subPath: kubernetes.yaml
-      #       path: /app/config/kubernetes.yaml
-      #     - subPath: services.yaml
-      #       path: /app/config/services.yaml
-      #     - subPath: settings.yaml
-      #       path: /app/config/settings.yaml
-      #     - subPath: widgets.yaml
-      #       path: /app/config/widgets.yaml
+      config:
+        enabled: true
+        type: configMap
+        name: homepage-gen-config
+        globalMounts:
+          - subPath: bookmarks.yaml
+            path: /app/config/bookmarks.yaml
+          - subPath: docker.yaml
+            path: /app/config/docker.yaml
+          - subPath: kubernetes.yaml
+            path: /app/config/kubernetes.yaml
+          - subPath: services.yaml
+            path: /app/config/services.yaml
+          - subPath: settings.yaml
+            path: /app/config/settings.yaml
+          - subPath: widgets.yaml
+            path: /app/config/widgets.yaml
       nas:
         readOnly: true
         type: hostPath
