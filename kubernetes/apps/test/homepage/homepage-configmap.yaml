@@ -1,0 +1,232 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage-config
+  namespace: self-hosted
+  labels:
+    app.kubernetes.io/name: homepage
+data:
+  bookmarks.yaml: |
+    - Bookmarks:
+        - GitHub Repo (servett):
+            - icon: github.png
+              href: https://github.com/GwynHannay/servett
+        - Home Assistant:
+            - icon: home-assistant.png
+              href: {{HOMEPAGE_VAR_HOMEASSISTANT_URL}}
+              description: Home Automation
+        - Shared Drive:
+            - icon: google-drive.png
+              href: {{HOMEPAGE_VAR_GDRIVE_URL}}
+        - kubesearch:
+            - icon: kubernetes.png
+              href: https://kubesearch.dev
+  kubernetes.yaml: |
+    mode: default
+  settings.yaml: |
+    title: Home
+    headerStyle: boxed
+    quicklaunch:
+      searchDescriptions: true
+    disableCollapse: true
+    useEqualHeights: true
+    fiveColumns: true
+    layout:
+      Bookmarks:
+        style: row
+        columns: 4
+      monitoring:
+        icon: mdi-glasses
+        style: row
+        columns: 3
+        tab: Apps
+      hosts:
+        icon: mdi-wan
+        style: row
+        columns: 3
+        tab: Apps
+      documents:
+        icon: mdi-file-document
+        style: row
+        columns: 4
+        tab: Links
+      banking:
+        icon: mdi-credit-card
+        style: row
+        columns: 4
+        tab: Links
+      health:
+        icon: mdi-heart-pulse
+        style: row
+        columns: 4
+        tab: Links
+      mediarr-files:
+        icon: mdi-projector
+        style: row
+        columns: 4
+        tab: Links
+  services.yaml: |
+    ---
+    - hosts:
+        - Brother Printer:
+            icon: brother.png
+            href: {{HOMEPAGE_VAR_PRINTER_URL}}
+            description: Printer & Scanner
+        - EliteDesk:
+            icon: vmware-esxi.png
+            href: {{HOMEPAGE_VAR_ESXI_URL}}
+            description: homesys ESXi
+        - Servett:
+            icon: vmware-esxi.png
+            href: {{HOMEPAGE_VAR_SERVETT_URL}}
+            description: servett ESXi
+        - Peter HP:
+            icon: vmware-esxi.png
+            href: {{HOMEPAGE_VAR_HP_ESXI_URL}}
+            description: Peter's HP ESXi
+        - RouterOS:
+            icon: mikrotik.png
+            href: {{HOMEPAGE_VAR_ROUTER_URL}}
+            description: Router
+        - UniFi Admin:
+            icon: unifi.png
+            href: {{HOMEPAGE_VAR_WIFI_URL}}
+            description: WiFi
+    - documents:
+        - Online Orders:
+            icon: mdi-mailbox-#34A853
+            href: {{HOMEPAGE_VAR_ORDERS_URL}}
+            description: Tracking Orders
+        - Inventory:
+            icon: mdi-archive-#F99A66
+            href: {{HOMEPAGE_VAR_INVENTORY_URL}}
+            description: Catalogue of Garage Boxes, Linen Drawers, etc.
+        - Family Info:
+            icon: mdi-account-multiple-#E10A0A
+            href: {{HOMEPAGE_VAR_FAMILY_URL}}
+            description: Medical, Assets, End of Life, etc.
+        - Fileserver Media:
+            icon: mdi-play-network-#3930D8
+            href: {{HOMEPAGE_VAR_SERVERMEDIA_URL}}
+            description: TV Shows and Movies to Keep
+        - Web Domains:
+            icon: mdi-domain-#00B5E2
+            href: {{HOMEPAGE_VAR_DOMAINS_URL}}
+            description: Our Web Domains, Hosting
+    - mediarr:
+        - NZBGet:
+            icon: nzbget.png
+            href: {{HOMEPAGE_VAR_NZBGET_URL}}
+            description: UseNet Downloads
+            widget:
+              type: nzbget
+              url: {{HOMEPAGE_VAR_NZBGET_URL}}
+              username: {{HOMEPAGE_VAR_NZBGET_USER}}
+              password: {{HOMEPAGE_VAR_NZBGET_PASS}}
+              hideErrors: true
+        - Sonarr:
+            icon: sonarr.png
+            href: {{HOMEPAGE_VAR_SONARR_URL}}
+            description: TV Shows
+            widget:
+              type: sonarr
+              url: {{HOMEPAGE_VAR_SONARR_URL}}
+              key: {{HOMEPAGE_VAR_SONARR}}
+              hideErrors: true
+        - Radarr:
+            icon: radarr.png
+            href: {{HOMEPAGE_VAR_RADARR_URL}}
+            description: Movies
+            widget:
+              type: radarr
+              url: {{HOMEPAGE_VAR_RADARR_URL}}
+              key: {{HOMEPAGE_VAR_RADARR}}
+              hideErrors: true
+        - Lidarr:
+            icon: lidarr.png
+            href: {{HOMEPAGE_VAR_LIDARR_URL}}
+            description: Music
+            widget:
+              type: lidarr
+              url: {{HOMEPAGE_VAR_LIDARR_URL}}
+              key: {{HOMEPAGE_VAR_LIDARR}}
+              hideErrors: true
+        - Readarr:
+            icon: readarr.png
+            href: {{HOMEPAGE_VAR_READARR_URL}}
+            description: Books
+            widget:
+              type: readarr
+              url: {{HOMEPAGE_VAR_READARR_URL}}
+              key: {{HOMEPAGE_VAR_READARR}}
+              hideErrors: true
+        - Bazarr:
+            icon: bazarr.png
+            href: {{HOMEPAGE_VAR_BAZARR_URL}}
+            description: Subtitles
+            widget:
+              type: bazarr
+              url: {{HOMEPAGE_VAR_BAZARR_URL}}
+              key: {{HOMEPAGE_VAR_BAZARR}}
+              hideErrors: true
+        - Prowlarr:
+            icon: prowlarr.png
+            href: {{HOMEPAGE_VAR_PROWLARR_URL}}
+            description: Config
+            widget:
+              type: prowlarr
+              url: {{HOMEPAGE_VAR_PROWLARR_URL}}
+              key: {{HOMEPAGE_VAR_PROWLARR}}
+              hideErrors: true
+    - mediarr-files:
+        - NAS:
+            icon: mdi-cloud
+            href: {{HOMEPAGE_VAR_NAS_URL}}
+            description: NAS Files
+    - banking:
+        - ING Bank:
+            icon: /icons/ing.png
+            href: {{HOMEPAGE_VAR_ING_URL}}
+            description: Main Bank
+        - Bankwest:
+            icon: /icons/bankwest.png
+            href: {{HOMEPAGE_VAR_BANKWEST_URL}}
+            description: Credit Card
+        - UBank:
+            icon: /icons/ubank.png
+            href: {{HOMEPAGE_VAR_UBANK_URL}}
+            description: Emergency Savings
+        - CMC Markets:
+            icon: /icons/cmc.png
+            href: {{HOMEPAGE_VAR_CMC_URL}}
+            description: Investment
+        - NAB:
+            icon: /icons/nab.png
+            href: {{HOMEPAGE_VAR_NAB_URL}}
+            description: Physical Branch
+    - health:
+        - Medicare:
+            icon: /icons/medicare.png
+            href: {{HOMEPAGE_VAR_MEDICARE_URL}}
+            description: Healthcare (via myGov)
+        - CSIRO Recipes:
+            icon: /icons/csiro.png
+            href: {{HOMEPAGE_VAR_RECIPES_URL}}
+            description: Static Recipes Page
+  widgets.yaml: |
+    - search:
+        provider: duckduckgo
+        target: _blank
+    - kubernetes:
+        cluster:
+          show: false
+        nodes:
+          show: false
+    - openmeteo:
+        label: {{HOMEPAGE_VAR_METEO_LABEL}}
+        latitude: {{HOMEPAGE_VAR_METEO_LATITUDE}}
+        longitude: {{HOMEPAGE_VAR_METEO_LONGITUDE}}
+        timezone: Australia/Perth
+        units: metric
+  docker.yaml: |
+    ---
