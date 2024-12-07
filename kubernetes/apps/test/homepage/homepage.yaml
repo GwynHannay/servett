@@ -28,9 +28,6 @@ spec:
         name: bjw-s
         namespace: flux-system
       interval: 30m
-  valuesFrom:
-    - kind: Secret
-      name: homepage-gen-config
   values:
     controllers:
       main:
