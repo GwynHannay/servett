@@ -224,9 +224,9 @@ data:
         target: _blank
     - kubernetes:
         cluster:
-          show: false
+          show: true
         nodes:
-          show: false
+          show: true
     - openmeteo:
         label: {{HOMEPAGE_VAR_METEO_LABEL}}
         latitude: {{HOMEPAGE_VAR_METEO_LATITUDE}}
