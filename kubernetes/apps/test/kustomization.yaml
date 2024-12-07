@@ -6,3 +6,13 @@ resources:
   - ./homepage/homepage.yaml
   - ./homepage/homepage-configmap.yaml
   - ./homepage/homepage-secrets.sops.yaml
+configMapGenerator:
+  - name: homepage-gen-config
+    files:
+      - values.yaml=./homepage/homepage-configmap.yaml
+secretGenerator:
+  - name: homepage-gen-secrets
+    files:
+      - values.yaml=./homepage/homepage-secrets.sops.yaml
+configurations:
+  - ./homepage/kustomizeconfig.yaml
