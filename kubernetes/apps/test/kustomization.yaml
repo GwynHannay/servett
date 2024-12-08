@@ -17,12 +17,6 @@ configMapGenerator:
 secretGenerator:
   - name: homepage-gen-secrets
     files:
-      - values.yaml=./homepage/homepage-secrets.values.yaml
-      # - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.values.yaml
-      # - docker.yaml=./homepage/config-maps/homepage-docker.values.yaml
-      # - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.values.yaml
-      # - services.yaml=./homepage/config-maps/homepage-services.values.yaml
-      # - settings.yaml=./homepage/config-maps/homepage-settings.values.yaml
-      # - widgets.yaml=./homepage/config-maps/homepage-widgets.values.yaml
+      - values.yaml=./homepage/homepage-secrets.sops.yaml
 configurations:
   - ./homepage/kustomizeconfig.yaml
