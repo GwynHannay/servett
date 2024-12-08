@@ -1,0 +1,21 @@
+kubernetes.yaml: ENC[AES256_GCM,data:vriU+fxfWXLTg2aC2Q==,iv:+a8bfcjHBx294ZTJyMjKZvEq3yE9Oz2FDdSAJPzehQI=,tag:VwksPX5sUU6Iz5d7bzvYtA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1p344yqccrc8c93qem34g7d99cwrdcjwjrd7l4vqw4ffalj8xcpgqxgethu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRekVQeEdjSzdSVUcrbm5Y
+            K3d5dVVBRmh3ak12ellDSjZCdHdyVWR2d2xrCngxVGtqMUllTU5TMkdzdkhUci9r
+            eEhiOCtPOUFCbzJjZ3BNWE1HNEluYzgKLS0tIFFyL3FxQmlnK3NnVitTQkt2eXBm
+            SzVhMys0MXJKaUxlUTl2dGZROFZzdFEKjYrOPxQHBdUshl60Yj0WlEZ30+fA5HYq
+            vxY7pSmL8NmQuB/bmZ9vE+gn2cisRtb4tYwsghQafSreUd8yUxXbNg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-12-08T18:54:45Z"
+    mac: ENC[AES256_GCM,data:cPxWLwjocqswOI6tyiiZRr1g8FuwFHalvdDJ7j3LmGQvhlRY+QoOKht1/G+2xuI7QGoNdHYNOL5ATiXYtxQ86CfueqGv/Bbrempt9yKNGn2xLBCBjGEQkoyr6CeJglJYIhNkuAelsE86Ww/cVTHzev3WWE0YheUXYhoNZ/MSl8s=,iv:UzM14xsDOdy+5VHcQByswuvjPtLs/4Z8NcKdYqVHuOk=,tag:+TksZD82rC3omrfczyw+WA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.1

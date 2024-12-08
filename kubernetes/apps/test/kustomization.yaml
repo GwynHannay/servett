@@ -17,6 +17,12 @@ resources:
 secretGenerator:
   - name: homepage-gen-config
     files:
-      - values.yaml=./homepage/homepage-configmap.values.yaml
+      # - values.yaml=./homepage/homepage-configmap.values.yaml
+      - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.yaml
+      - docker.yaml=./homepage/config-maps/homepage-docker.yaml
+      - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.yaml
+      - services.yaml=./homepage/config-maps/homepage-services.yaml
+      - settings.yaml=./homepage/config-maps/homepage-settings.yaml
+      - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
 configurations:
   - ./homepage/kustomizeconfig.yaml
