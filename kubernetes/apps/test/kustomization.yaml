@@ -5,6 +5,7 @@ namespace: test
 resources:
   - ./namespace.yaml
   - ./homepage/homepage.yaml
+  - ./homepage/homepage-secrets.sops.yaml
 configMapGenerator:
   - name: homepage-gen-config
     files:
