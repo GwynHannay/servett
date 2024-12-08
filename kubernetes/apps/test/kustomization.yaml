@@ -5,24 +5,24 @@ namespace: test
 resources:
   - ./namespace.yaml
   - ./homepage/homepage.yaml
-# configMapGenerator:
-#   - name: homepage-gen-config
-#     files:
-#       - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.yaml
-#       - docker.yaml=./homepage/config-maps/homepage-docker.yaml
-#       - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.yaml
-#       - services.yaml=./homepage/config-maps/homepage-services.yaml
-#       - settings.yaml=./homepage/config-maps/homepage-settings.yaml
-#       - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
-secretGenerator:
+configMapGenerator:
   - name: homepage-gen-config
     files:
-      # - values.yaml=./homepage/homepage-configmap.values.yaml
-      - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.values.yaml
-      - docker.yaml=./homepage/config-maps/homepage-docker.values.yaml
-      - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.values.yaml
-      - services.yaml=./homepage/config-maps/homepage-services.values.yaml
-      - settings.yaml=./homepage/config-maps/homepage-settings.values.yaml
-      - widgets.yaml=./homepage/config-maps/homepage-widgets.values.yaml
+      - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.yaml
+      - docker.yaml=./homepage/config-maps/homepage-docker.yaml
+      - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.yaml
+      - services.yaml=./homepage/config-maps/homepage-services.yaml
+      - settings.yaml=./homepage/config-maps/homepage-settings.yaml
+      - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
+secretGenerator:
+  - name: homepage-gen-secrets
+    files:
+      - values.yaml=./homepage/homepage-secrets.values.yaml
+      # - bookmarks.yaml=./homepage/config-maps/homepage-bookmarks.values.yaml
+      # - docker.yaml=./homepage/config-maps/homepage-docker.values.yaml
+      # - kubernetes.yaml=./homepage/config-maps/homepage-kubernetes.values.yaml
+      # - services.yaml=./homepage/config-maps/homepage-services.values.yaml
+      # - settings.yaml=./homepage/config-maps/homepage-settings.values.yaml
+      # - widgets.yaml=./homepage/config-maps/homepage-widgets.values.yaml
 configurations:
   - ./homepage/kustomizeconfig.yaml

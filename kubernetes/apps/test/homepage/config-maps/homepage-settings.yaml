@@ -1,0 +1,46 @@
+title: Home
+headerStyle: boxed
+quicklaunch:
+  searchDescriptions: true
+disableCollapse: true
+useEqualHeights: true
+fiveColumns: true
+layout:
+  Bookmarks:
+    style: row
+    columns: 4
+  mediarr:
+    icon: mdi-projector
+    style: row
+    columns: 3
+    tab: Main
+  monitoring:
+    icon: mdi-glasses
+    style: row
+    columns: 3
+    tab: Apps
+  hosts:
+    icon: mdi-wan
+    style: row
+    columns: 3
+    tab: Apps
+  documents:
+    icon: mdi-file-document
+    style: row
+    columns: 4
+    tab: Links
+  banking:
+    icon: mdi-credit-card
+    style: row
+    columns: 4
+    tab: Links
+  health:
+    icon: mdi-heart-pulse
+    style: row
+    columns: 4
+    tab: Links
+  mediarr-files:
+    icon: mdi-projector
+    style: row
+    columns: 4
+    tab: Links
