@@ -15,7 +15,7 @@ resources:
 #       - settings.yaml=./homepage/config-maps/homepage-settings.yaml
 #       - widgets.yaml=./homepage/config-maps/homepage-widgets.yaml
 secretGenerator:
-  - name: homepage-gen-secrets
+  - name: homepage-gen-config
     files:
       - values.yaml=./homepage/homepage-configmap.values.yaml
 configurations:
