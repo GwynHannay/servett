@@ -70,7 +70,7 @@ spec:
           - path: /app/public
       config:
         enabled: true
-        type: config
+        type: configMap
         name: homepage-gen-config
         globalMounts:
           - subPath: bookmarks.yaml
