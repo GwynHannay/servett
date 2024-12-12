@@ -9,8 +9,18 @@ layout:
   Bookmarks:
     style: row
     columns: 4
+  widgets:
+    icon: mdi-widgets
+    style: row
+    columns: 3
+    tab: Main
   mediarr:
     icon: mdi-projector
+    style: row
+    columns: 3
+    tab: Main
+  self-hosted:
+    icon: mdi-devices
     style: row
     columns: 3
     tab: Main
