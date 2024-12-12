@@ -10,6 +10,7 @@ stringData:
     IP_RANGE: ENC[AES256_GCM,data:Z8NNqaTSYsbVNkWhpjWOSQW2AnAwhDH/Yw==,iv:aUk2M9mqhM9SVa/rpOz7eTIT/4OQPOIVKnU7yW/M39g=,tag:mjDjNFnEgjAbByyYhc6C/A==,type:str]
     INGRESS_IP: ENC[AES256_GCM,data:bnSQwrBmLY6fYGQk,iv:pdxXYxIGP7r/8YsiNtCLWKGgCSxmZF0wrrM1iW/GR6k=,tag:ZAmGNhPc02Iuc8P1etGCZw==,type:str]
     INGRESS_HOST: ENC[AES256_GCM,data:oCXFACZCWeqpP2+jec11gN2rVQ6IbB8=,iv:4eaohckZ0PKrA/1KSOot/aFiT4k0cq594acVN2cyOyw=,tag:rDlvHrKLKqmzsJbKUZqNXA==,type:str]
+    NAS_HOST: ENC[AES256_GCM,data:Nh43+0IT/XLmMos=,iv:6AZzkkRig2rvKFl2/kRMDBirqnzWQgzOoBddPbt4Akw=,tag:kZVK2Bln2NdO0UxZYm7VwQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -25,8 +26,8 @@ sops:
             akRaUlpFL2lyZ0VGMkRiVnp5dS9DSGMKjBVdW9wqONDkaoortRsk7cY4XITIFHqw
             19Tj1wtpsk8BFxw0oMGb+XXgsVowVXKawow5YQsen4AbixuGSQwr8A==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-09-25T21:18:00Z"
-    mac: ENC[AES256_GCM,data:lqksq4LslC6tUN/5dUsEzsopG9QrRGhI4F4RGjWSCDnt+XucZmBkgCxlr+mUY8jheQV4vtYApyUSQK41UbU0bw8BVb3FK5Lcd/ZTq52iHZXk0LaaVVn9j6J6+bHOMCxfY1XJMhGF3Js52FRy0VaeJ06ldaUSrq3njjf8wh8WZ3U=,iv:anpYV2rEmb+uv2I+0VORBPELd0WQp86bdLnfqseHQ9k=,tag:Q2D6gkQBvf9967BYKeBzHA==,type:str]
+    lastmodified: "2024-12-12T22:19:01Z"
+    mac: ENC[AES256_GCM,data:aLi8QvqplcLvAB9i+S+YMnV36Zg7MgkfHoGs9lYtjlyTHd3OQvhWFtcBDqBfhPf8rK4vZNApip4+m4OnIrPNGvX/58q7P387NbGfkDKIAlzdw2K4VN8kDN/EqSHUdp/7UaJHLnf6+u3O31JkzIqdVXDpUjeenD7Qko4KZBqpETc=,iv:jivhocb4xED7lOsTd3oFeVeHwqZ6yf+xNOBzzFi7+98=,tag:3tyWY3ERM7YJdBzh8eX8bg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.9.0
+    version: 3.9.2
