@@ -10,7 +10,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: "${NAS_HOST}"
-    path: "/kubernetes/vols"
+    path: "/mypool/kubernetes/vols"
   mountOptions:
     - nfsvers=4.2
 ---
