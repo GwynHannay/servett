@@ -20,4 +20,4 @@ secretGenerator:
     files:
       - values.yaml=./homepage/homepage-secrets.sops.yaml
 configurations:
-  - ./homepage/kustomizeconfig.yaml
+  - ./kustomizeconfig.yaml
