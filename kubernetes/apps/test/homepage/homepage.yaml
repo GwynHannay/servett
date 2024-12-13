@@ -16,7 +16,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: homepage
-  namespace: test
+  namespace: self-hosted
 spec:
   interval: 30m
   chart:
@@ -148,4 +148,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: homepage
-    namespace: test
+    namespace: self-hosted
