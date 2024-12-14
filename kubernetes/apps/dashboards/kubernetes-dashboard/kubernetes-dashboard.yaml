@@ -31,7 +31,7 @@ spec:
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: Dashboard
-          gethomepage.dev/group: *ns
+          gethomepage.dev/group: monitoring
           gethomepage.dev/icon: kubernetes-dashboard.png
           gethomepage.dev/name: Kubernetes Dashboard
           gethomepage.dev/weight: "10"
