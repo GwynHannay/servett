@@ -28,6 +28,14 @@ spec:
     app:
       ingress:
         enabled: true
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Dashboard
+          gethomepage.dev/group: *ns
+          gethomepage.dev/icon: kubernetes-dashboard.png
+          gethomepage.dev/name: Kubernetes Dashboard
+          gethomepage.dev/weight: "10"
+          gethomepage.dev/href: "https://snap-dash.${SECRET_DOMAIN}/#/workloads?namespace=_all"
         hosts: ["snap-dash.${SECRET_DOMAIN}"]
         ingressClassName: nginx
         path: /
