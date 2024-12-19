@@ -1,16 +1,16 @@
----
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: calibre-web
-  namespace: media
-spec:
-  endpoints:
-  - dnsName: "books-snap.${SECRET_DOMAIN}"
-    recordTTL: 180
-    recordType: CNAME
-    targets:
-    - "${INGRESS_HOST}"
+# ---
+# apiVersion: externaldns.k8s.io/v1alpha1
+# kind: DNSEndpoint
+# metadata:
+#   name: calibre-web
+#   namespace: media
+# spec:
+#   endpoints:
+#   - dnsName: "books-snap.${SECRET_DOMAIN}"
+#     recordTTL: 180
+#     recordType: CNAME
+#     targets:
+#     - "${INGRESS_HOST}"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
