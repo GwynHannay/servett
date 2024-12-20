@@ -60,6 +60,14 @@ spec:
         ports:
           http:
             port: 3333
+      postgres:
+        ports:
+          http:
+            port: 5432
+      redis:
+        ports:
+          http:
+            port: 6379
 
     ingress:
       main:
