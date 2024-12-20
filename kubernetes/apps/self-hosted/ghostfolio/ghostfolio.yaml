@@ -61,10 +61,12 @@ spec:
           http:
             port: 3333
       postgres:
+        controller: main
         ports:
           http:
             port: 5432
       redis:
+        controller: main
         ports:
           http:
             port: 6379
