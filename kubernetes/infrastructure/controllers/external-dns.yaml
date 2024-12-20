@@ -32,18 +32,18 @@ spec:
           secretKeyRef:
             name: external-dns-secret
             key: api-token
-    sources: ["crd", "ingress"]
-    extraArgs:
-      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
-      - --crd-source-kind=DNSEndpoint
-    rbac:
-      additionalPermissions:
-        - apiGroups: ["externaldns.k8s.io"]
-          resources: ["dnsendpoints"]
-          verbs: ["get","watch","list"]
-        - apiGroups: ["externaldns.k8s.io"]
-          resources: ["dnsendpoints/status"]
-          verbs: ["*"]
+    sources: ["ingress"]
+    # extraArgs:
+    #   - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+    #   - --crd-source-kind=DNSEndpoint
+    # rbac:
+    #   additionalPermissions:
+    #     - apiGroups: ["externaldns.k8s.io"]
+    #       resources: ["dnsendpoints"]
+    #       verbs: ["get","watch","list"]
+    #     - apiGroups: ["externaldns.k8s.io"]
+    #       resources: ["dnsendpoints/status"]
+    #       verbs: ["*"]
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
