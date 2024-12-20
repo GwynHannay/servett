@@ -7,6 +7,6 @@ metadata:
   labels:
     app.kubernetes.io/name: ghostfolio
 data:
-  REDIS_HOST: redis.self-hosted.svc.cluster.local
+  REDIS_HOST: ghostfolio-redis.self-hosted.svc.cluster.local
   REDIS_PORT: "6379"
   POSTGRES_DB: ghostfolio
