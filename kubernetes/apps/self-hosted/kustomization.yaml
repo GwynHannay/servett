@@ -6,6 +6,7 @@ resources:
   - ./namespace.yaml
   - ./ghostfolio/ghostfolio.yaml
   - ./ghostfolio/ghostfolio-config.yaml
+  - ./ghostfolio/ghostfolio-pvc.yaml
   - ./ghostfolio/ghostfolio-secrets.sops.yaml
   - ./homepage/homepage.yaml
   - ./homepage/homepage-secrets.sops.yaml
