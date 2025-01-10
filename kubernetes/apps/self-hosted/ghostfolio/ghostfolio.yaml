@@ -37,7 +37,7 @@ spec:
           postgres:
             image: 
               repository: docker.io/library/postgres
-              tag: 15
+              tag: 16
             envFrom:
               - secretRef:
                   name: *secrets
