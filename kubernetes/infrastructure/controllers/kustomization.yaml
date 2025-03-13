@@ -4,5 +4,5 @@ resources:
   - app-template.yaml
   - cert-manager.yaml
   - external-dns.yaml
-  - ingress-nginx.yaml
-  - metallb.yaml
+  # - ingress-nginx.yaml
+  # - metallb.yaml
