@@ -1,11 +1,5 @@
 ---
 apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
-metadata:
-  name: address-pool
-  namespace: metallb-system
----
-apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: address-pool
@@ -13,3 +7,9 @@ metadata:
 spec:
   addresses:
   - "${IP_RANGE}"
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: address-pool
+  namespace: metallb-system
