@@ -5,4 +5,4 @@ resources:
   - config-secrets.sops.yaml
   - external-dns-ns.yaml
   - ingress-nginx-ns.yaml
-  - metallb-ns.yaml
+  - metallb.yaml
