@@ -6,3 +6,4 @@ resources:
   - external-dns-ns.yaml
   - ingress-nginx-ns.yaml
   - metallb.yaml
+  - staging.sops.yaml
