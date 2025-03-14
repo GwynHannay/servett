@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cert-manager-ns.yaml
-  - config-secrets.sops.yaml
-  - external-dns-ns.yaml
-  - ingress-nginx-ns.yaml
-  - metallb.yaml
   - staging.sops.yaml
+  - config-secrets.sops.yaml
+  - metallb.yaml
+  - ingress-nginx-ns.yaml
+  - cert-manager-ns.yaml
+  - external-dns-ns.yaml
