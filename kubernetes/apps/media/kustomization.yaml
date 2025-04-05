@@ -7,3 +7,5 @@ resources:
   - ./calibre/calibre-pvc.yaml
   - ./calibre/calibre-app.yaml
   - ./calibre/calibre-web.yaml
+  - ./immich/immich-pvc.yaml
+  - ./paperless/paperless-pvc.yaml
