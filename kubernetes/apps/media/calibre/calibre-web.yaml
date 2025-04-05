@@ -64,9 +64,9 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: nfs
+        existingClaim: nfs-calibre
         globalMounts:
           - path: /config
-            subPath: calibre/web
+            subPath: web
           - path: /books
-            subPath: calibre/library
+            subPath: library
