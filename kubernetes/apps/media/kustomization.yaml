@@ -8,4 +8,6 @@ resources:
   - ./calibre/calibre-app.yaml
   - ./calibre/calibre-web.yaml
   - ./immich/immich-pvc.yaml
+  - ./paperless/paperless-config.yaml
   - ./paperless/paperless-pvc.yaml
+  - ./paperless/paperless-secrets.sops.yaml

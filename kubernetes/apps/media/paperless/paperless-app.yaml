@@ -1,0 +1,141 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app paperless
+  namespace: &ns media
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+
+    controllers:
+      main:
+        type: statefulset
+
+        containers:
+          main:
+            dependsOn:
+              - postgresql
+              - redis
+              - gotenberg
+              - tika
+            image:
+              repository: ghcr.io/paperless-ngx/paperless-ngx
+              tag: 2.14.7
+            envFrom:
+              - secretRef:
+                  name: &secrets paperless-secrets
+              - configMapRef:
+                  name: &config paperless-config
+            probes:
+              startup:
+                enabled: true
+                custom: false
+                spec:
+                  initialDelaySeconds: 0
+                  timeoutSeconds: 1
+                  failureThreshold: 30
+                  periodSeconds: 20
+            resources:
+              requests:
+                cpu: 5m
+                memory: 300Mi
+              limits:
+                cpu: 3000m
+                memory: 3000Mi
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: docker.io/library/postgres
+              tag: 16.1
+            envFrom:
+              - secretRef:
+                  name: *secrets
+              - configMapRef:
+                  name: *config
+          
+          redis:
+            name: redis
+            image:
+              repository: docker.io/library/redis
+              tag: 7
+
+          gotenberg:
+            name: gotenberg
+            image:
+              repository: docker.io/gotenberg/gotenberg
+              tag: 8.13.0
+            command:
+              - gotenberg
+              - --chromium-disable-javascript=true
+              - --chromium-allow-list=file:///tmp/.*
+
+          tika:
+            name: tika
+            image:
+              repository: ghcr.io/paperless-ngx/tika
+              tag: 2.9.1-full
+
+    service:
+      main:
+        ports:
+          http:
+            port: 8000
+
+    ingress:
+      main:
+        enabled: true
+        className: internal
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 4G
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Documents
+          gethomepage.dev/group: widgets
+          gethomepage.dev/icon: paperless-ngx.png
+          gethomepage.dev/name: Paperless-NGX
+          gethomepage.dev/weight: "11"
+          gethomepage.dev/widget.type: paperlessngx
+          gethomepage.dev/widget.url: "https://paperless-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_PAPERLESS}}"
+        hosts:
+          - host: &host "paperless-snap.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+
+    persistence:
+      library:
+        existingClaim: nfs-paperless
+        advancedMounts:
+          main:
+            main:
+              - path: /library/data
+                subPath: data
+              - path: /library/media
+                subPath: media
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
+            redis:
+              - path: /data
+                subPath: redisdata
