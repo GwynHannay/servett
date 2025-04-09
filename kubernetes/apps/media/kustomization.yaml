@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: media
 resources:
   - ./namespace.yaml
-  # - ./calibre/calibre-pvc.yaml
-  # - ./calibre/calibre-app.yaml
-  # - ./calibre/calibre-web.yaml
+  - ./calibre/calibre-pvc.yaml
+  - ./calibre/calibre-app.yaml
+  - ./calibre/calibre-web.yaml
   - ./immich/immich-pvc.yaml
   - ./paperless/paperless-pvc.yaml
   - ./paperless/paperless-config.yaml
   - ./paperless/paperless-secrets.sops.yaml
-  - ./paperless/paperless-app.yaml
+  # - ./paperless/paperless-app.yaml
