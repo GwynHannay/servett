@@ -30,6 +30,7 @@ spec:
             image:
               repository: ghcr.io/linuxserver/calibre
               tag: version-v7.0.0
+              pullPolicy: IfNotPresent
 
     service:
       main:

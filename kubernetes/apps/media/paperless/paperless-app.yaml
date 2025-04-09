@@ -36,6 +36,7 @@ spec:
             image:
               repository: ghcr.io/paperless-ngx/paperless-ngx
               tag: 2.14.7
+              pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
                   name: &secrets paperless-secrets
@@ -63,6 +64,7 @@ spec:
             image:
               repository: docker.io/library/postgres
               tag: 16.1
+              pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
                   name: *secrets
@@ -74,12 +76,14 @@ spec:
             image:
               repository: docker.io/library/redis
               tag: 7
+              pullPolicy: IfNotPresent
 
           gotenberg:
             name: gotenberg
             image:
               repository: docker.io/gotenberg/gotenberg
               tag: 8.13.0
+              pullPolicy: IfNotPresent
             command:
               - gotenberg
               - --chromium-disable-javascript=true
@@ -90,6 +94,7 @@ spec:
             image:
               repository: ghcr.io/paperless-ngx/tika
               tag: 2.9.1-full
+              pullPolicy: IfNotPresent
 
     service:
       main:

@@ -28,6 +28,7 @@ spec:
             image:
               repository: ghostfolio/ghostfolio
               tag: 2.125.0
+              pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
                   name: &secrets ghostfolio-secrets
@@ -38,6 +39,7 @@ spec:
             image: 
               repository: docker.io/library/postgres
               tag: 16
+              pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
                   name: *secrets
@@ -48,6 +50,7 @@ spec:
             image:
               repository: docker.io/library/redis
               tag: alpine
+              pullPolicy: IfNotPresent
             command: ['redis-server', '--requirepass', "$(REDIS_PASSWORD)"]
             envFrom:
               - secretRef:
