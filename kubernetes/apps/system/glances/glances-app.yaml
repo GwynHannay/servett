@@ -82,7 +82,7 @@ spec:
           - path: /host
             readOnly: true
       nas:
-        existingClaim: nas-glances
+        existingClaim: nfs-glances
         globalMounts:
           - path: /nas
             readOnly: true
