@@ -47,7 +47,7 @@ spec:
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: System Resources
-          gethomepage.dev/group: *ns
+          gethomepage.dev/group: monitoring
           gethomepage.dev/icon: glances.png
           gethomepage.dev/name: Glances
           gethomepage.dev/weight: "20"
