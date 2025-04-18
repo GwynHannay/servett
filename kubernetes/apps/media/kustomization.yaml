@@ -10,7 +10,7 @@ resources:
   - ./immich/immich-pvc.yaml
   - ./immich/immich-config.yaml
   - ./immich/immich-secrets.sops.yaml
-  # - ./immich/immich-app.yaml
+  - ./immich/immich-app.yaml
   - ./paperless/paperless-pvc.yaml
   - ./paperless/paperless-config.yaml
   - ./paperless/paperless-secrets.sops.yaml
