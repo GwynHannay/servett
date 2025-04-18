@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immich-config
+  namespace: media
+  labels:
+    app.kubernetes.io/name: immich
+data:
+  TZ: "Australia/Perth"
+
+  # App
+  IMMICH_ENV: "production"
+  IMMICH_LOG_LEVEL: "verbose"
+  DB_HOSTNAME: localhost
+  DB_DATABASE_NAME: immich
+  DB_PORT: '5432'
+  REDIS_HOSTNAME: localhost
+  IMMICH_SERVER_URL: http://localhost:2283
+  IMMICH_MACHINE_LEARNING_URL: http://localhost:3003

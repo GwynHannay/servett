@@ -1,0 +1,138 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app immich-server
+  namespace: &ns media
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+
+    controllers:
+      main:
+        containers:
+          main:
+            enabled: False
+            dependsOn:
+              - postgresql
+              - redis
+            image:
+              repository: ghcr.io/immich-app/immich-server
+              tag: v1.131.3
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: &secrets immich-secrets
+              - configMapRef:
+                  name: &config immich-config
+            resources:
+              requests:
+                cpu: 5m
+                memory: 250Mi
+              limits:
+                memory: 2500Mi
+
+          ml:
+            enabled: False
+            dependsOn:
+              - main
+            image:
+              repository: ghcr.io/immich-app/immich-machine-learning
+              tag: v1.131.3
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+              - configMapRef:
+                  name: *config
+            resources:
+              requests:
+                cpu: 15m
+                memory: 250Mi
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: docker.io/tensorchord/pgvecto-rs
+              tag: pg16-v0.2.1
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+              - configMapRef:
+                  name: *config
+          
+          redis:
+            name: redis
+            image:
+              repository: docker.io/library/redis
+              tag: 7
+              pullPolicy: IfNotPresent
+
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 2283
+
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Photos
+          gethomepage.dev/group: widgets
+          gethomepage.dev/icon: immich.png
+          gethomepage.dev/name: Immich
+          gethomepage.dev/weight: "10"
+          gethomepage.dev/widget.type: immich
+          gethomepage.dev/widget.url: "https://immich-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_IMMICH}}"
+        hosts:
+          - host: &host "immich.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+            secretName: immich-tls
+
+    persistence:
+      library:
+        existingClaim: nfs-immich
+        advancedMounts:
+          main:
+            main:
+              - path: /usr/src/app/upload
+                subPath: upload
+            ml:
+              - path: /cache
+                subPath: models
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
+      # nas:
+      #   existingClaim: nfs-immich
+      #   globalMounts:
+      #     - path: /nas
+      #       subPath: immich
