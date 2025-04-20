@@ -4,12 +4,16 @@ kind: Kustomization
 namespace: self-hosted
 resources:
   - ./namespace.yaml
-  - ./ghostfolio/ghostfolio-config.yaml
   - ./ghostfolio/ghostfolio-pvc.yaml
+  - ./ghostfolio/ghostfolio-config.yaml
   - ./ghostfolio/ghostfolio-secrets.sops.yaml
   # - ./ghostfolio/ghostfolio-app.yaml
-  - ./homepage/homepage.yaml
   - ./homepage/homepage-secrets.sops.yaml
+  - ./homepage/homepage-app.yaml
+  - ./wallabag/wallabag-pvc.yaml
+  - ./wallabag/wallabag-config.yaml
+  - ./wallabag/wallabag-secrets.sops.yaml
+  # - ./wallabag/wallabag-app.yaml
 configMapGenerator:
   - name: homepage-gen-config
     files:

@@ -1,0 +1,65 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-wallabag
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: "${NAS_HOST}"
+    path: "/mypool/kubernetes/vols/wallabag"
+  mountOptions:
+    - nfsvers=4.2
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-wallabag
+  namespace: self-hosted
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 200Gi
+  volumeName: nfs-wallabag
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-wallabag
+spec:
+  capacity:
+    storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /mnt/tmp/wallabag
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - iris
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-wallabag
+  namespace: self-hosted
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 50Gi
+  volumeName: local-wallabag
