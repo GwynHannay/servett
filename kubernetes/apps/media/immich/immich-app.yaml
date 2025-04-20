@@ -86,7 +86,6 @@ spec:
 
     service:
       main:
-        controller: main
         ports:
           http:
             port: 2283
@@ -107,7 +106,7 @@ spec:
           gethomepage.dev/widget.url: "https://immich-snap.${SECRET_DOMAIN}"
           gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_IMMICH}}"
         hosts:
-          - host: &host "immich.${SECRET_DOMAIN}"
+          - host: &host "immich-snap.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
