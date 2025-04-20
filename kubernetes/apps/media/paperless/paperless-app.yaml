@@ -141,9 +141,13 @@ spec:
                 subPath: data
               - path: /library/media
                 subPath: media
-            postgresql:
-              - path: /var/lib/postgresql/data
-                subPath: pgdata
             redis:
               - path: /data
                 subPath: redisdata
+      db:
+        existingClaim: local-paperless
+        advancedMounts:
+          main:
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata

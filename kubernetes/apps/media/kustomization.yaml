@@ -14,4 +14,4 @@ resources:
   - ./paperless/paperless-pvc.yaml
   - ./paperless/paperless-config.yaml
   - ./paperless/paperless-secrets.sops.yaml
-  # - ./paperless/paperless-app.yaml
+  - ./paperless/paperless-app.yaml
