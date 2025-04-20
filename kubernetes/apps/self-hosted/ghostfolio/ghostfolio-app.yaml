@@ -20,11 +20,15 @@ spec:
     defaultPodOptions:
       securityContext:
         fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
 
     controllers:
       main:
         containers:
           main:
+            dependsOn:
+              - postgresql
+              - redis
             image:
               repository: ghostfolio/ghostfolio
               tag: 2.125.0

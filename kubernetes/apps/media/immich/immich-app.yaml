@@ -131,6 +131,10 @@ spec:
             ml:
               - path: /cache
                 subPath: models
+      db:
+        existingClaim: local-immich
+        advancedMounts:
+          main:
             postgresql:
               - path: /var/lib/postgresql/data
                 subPath: pgdata
