@@ -18,3 +18,4 @@ data:
   REDIS_HOSTNAME: localhost
   IMMICH_SERVER_URL: http://localhost:2283
   IMMICH_MACHINE_LEARNING_URL: http://localhost:3003
+  IMMICH_PORT: '2283'
