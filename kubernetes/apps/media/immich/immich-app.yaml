@@ -86,6 +86,7 @@ spec:
 
     service:
       main:
+        controller: main
         ports:
           http:
             port: 2283
@@ -135,8 +136,3 @@ spec:
             postgresql:
               - path: /var/lib/postgresql/data
                 subPath: pgdata
-      # nas:
-      #   existingClaim: nfs-immich
-      #   globalMounts:
-      #     - path: /nas
-      #       subPath: immich
