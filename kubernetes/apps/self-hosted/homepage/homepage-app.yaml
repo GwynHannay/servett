@@ -45,7 +45,7 @@ spec:
         enabled: true
         className: nginx
         hosts:
-          - host: &host "snap-home.${SECRET_DOMAIN}"
+          - host: &host "home.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:

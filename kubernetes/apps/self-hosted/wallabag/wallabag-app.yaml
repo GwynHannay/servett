@@ -78,7 +78,7 @@ spec:
           gethomepage.dev/icon: wallabag.png
           gethomepage.dev/name: Wallabag
         hosts:
-          - host: &host "wallabag-snap.${SECRET_DOMAIN}"
+          - host: &host "wallabag.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -90,16 +90,12 @@ spec:
 
     persistence:
       images:
-        existingClaim: nfs-wallabag
+        existingClaim: local-wallabag
         advancedMounts:
           main:
             main:
               - path: /var/www/wallabag/web/assets/images
                 subPath: images
-      db:
-        existingClaim: local-wallabag
-        advancedMounts:
-          main:
             postgresql:
               - path: /var/lib/postgresql/data
                 subPath: pgdata

@@ -27,6 +27,6 @@ spec:
   values:
     controller:
       extraArgs:
-        default-ssl-certificate: "ingress-nginx/letsencrypt-wildcard-cert-staging"
+        default-ssl-certificate: "ingress-nginx/letsencrypt-wildcard-cert-production"
     admissionWebhooks:
       enabled: true

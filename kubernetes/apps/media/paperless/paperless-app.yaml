@@ -118,10 +118,10 @@ spec:
           gethomepage.dev/name: Paperless-NGX
           gethomepage.dev/weight: "11"
           gethomepage.dev/widget.type: paperlessngx
-          gethomepage.dev/widget.url: "https://paperless-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.url: "https://paperless.${SECRET_DOMAIN}"
           gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_PAPERLESS}}"
         hosts:
-          - host: &host "paperless-snap.${SECRET_DOMAIN}"
+          - host: &host "paperless.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -141,10 +141,6 @@ spec:
                 subPath: data
               - path: /library/media
                 subPath: media
-      db:
-        existingClaim: local-paperless
-        advancedMounts:
-          main:
             postgresql:
               - path: /var/lib/postgresql/data
                 subPath: pgdata

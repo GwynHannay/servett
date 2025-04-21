@@ -70,7 +70,7 @@ spec:
           gethomepage.dev/icon: joplin.png
           gethomepage.dev/name: Joplin
         hosts:
-          - host: &host "joplin-snap.${SECRET_DOMAIN}"
+          - host: &host "joplin.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:

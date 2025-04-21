@@ -40,7 +40,7 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/tmp/wallabag
+    path: /mnt/tera/vols/wallabag
   nodeAffinity:
     required:
       nodeSelectorTerms:

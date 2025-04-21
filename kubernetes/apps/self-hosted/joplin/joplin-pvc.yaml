@@ -40,7 +40,7 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/tmp/joplin
+    path: /mnt/tera/vols/joplin
   nodeAffinity:
     required:
       nodeSelectorTerms:

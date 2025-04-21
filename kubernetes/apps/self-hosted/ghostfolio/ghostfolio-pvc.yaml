@@ -40,7 +40,7 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/tmp/ghostfolio
+    path: /mnt/tera/vols/ghostfolio
   nodeAffinity:
     required:
       nodeSelectorTerms:

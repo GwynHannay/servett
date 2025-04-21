@@ -49,12 +49,12 @@ spec:
           gethomepage.dev/name: Calibre Web
           gethomepage.dev/weight: "15"
           gethomepage.dev/widget.type: calibreweb
-          gethomepage.dev/widget.url: "https://books-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.url: "https://books.${SECRET_DOMAIN}"
           gethomepage.dev/widget.username: "{{HOMEPAGE_VAR_CALIBRE_USER}}"
           gethomepage.dev/widget.password: "{{HOMEPAGE_VAR_CALIBRE_PASS}}"
           gethomepage.dev/widget.fields: '["books", "authors", "series"]'
         hosts:
-          - host: &host "books-snap.${SECRET_DOMAIN}"
+          - host: &host "books.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -65,7 +65,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: nfs-calibre
+        existingClaim: local-calibre
         globalMounts:
           - path: /config
             subPath: web

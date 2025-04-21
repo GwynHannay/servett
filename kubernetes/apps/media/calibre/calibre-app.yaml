@@ -50,7 +50,7 @@ spec:
           gethomepage.dev/name: Calibre
           gethomepage.dev/weight: "50"
         hosts:
-          - host: &host "calibre-snap.${SECRET_DOMAIN}"
+          - host: &host "calibre.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -61,7 +61,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: nfs-calibre
+        existingClaim: local-calibre
         globalMounts:
           - path: config
             subPath: core

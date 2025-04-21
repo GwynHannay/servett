@@ -29,7 +29,7 @@ data:
   PAPERLESS_LOGROTATE_MAX_BACKUPS: '20'
 
   # Hosting and security
-  PAPERLESS_URL: "https://paperless-snap.${SECRET_DOMAIN}"
+  PAPERLESS_URL: "https://paperless.${SECRET_DOMAIN}"
 
   # OCR settings
   PAPERLESS_OCR_LANGUAGE: eng
@@ -50,5 +50,5 @@ data:
 
   # Docker-specific options
   PAPERLESS_PORT: '8000'
-  USERMAP_UID: '1001'
-  USERMAP_GID: '1001'
+  USERMAP_UID: '1002'
+  USERMAP_GID: '1002'

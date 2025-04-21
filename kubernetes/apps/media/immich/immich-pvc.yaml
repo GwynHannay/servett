@@ -34,13 +34,13 @@ metadata:
   name: local-immich
 spec:
   capacity:
-    storage: 50Gi
+    storage: 500Gi
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/tmp/immich
+    path: /mnt/tera/vols/immich
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -61,5 +61,5 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 50Gi
+      storage: 500Gi
   volumeName: local-immich

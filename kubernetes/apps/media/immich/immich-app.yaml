@@ -108,10 +108,10 @@ spec:
           gethomepage.dev/name: Immich
           gethomepage.dev/weight: "10"
           gethomepage.dev/widget.type: immich
-          gethomepage.dev/widget.url: "https://immich-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.url: "https://immich.${SECRET_DOMAIN}"
           gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_IMMICH}}"
         hosts:
-          - host: &host "immich-snap.${SECRET_DOMAIN}"
+          - host: &host "immich.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
@@ -133,10 +133,6 @@ spec:
             ml:
               - path: /cache
                 subPath: models
-      db:
-        existingClaim: local-immich
-        advancedMounts:
-          main:
             postgresql:
               - path: /var/lib/postgresql/data
                 subPath: pgdata

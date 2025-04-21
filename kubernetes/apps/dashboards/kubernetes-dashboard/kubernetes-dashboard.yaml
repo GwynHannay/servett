@@ -35,8 +35,8 @@ spec:
           gethomepage.dev/icon: kubernetes-dashboard.png
           gethomepage.dev/name: Kubernetes Dashboard
           gethomepage.dev/weight: "10"
-          gethomepage.dev/href: "https://snap-dash.${SECRET_DOMAIN}/#/workloads?namespace=_all"
-        hosts: ["snap-dash.${SECRET_DOMAIN}"]
+          gethomepage.dev/href: "https://kubernetes.${SECRET_DOMAIN}/#/workloads?namespace=_all"
+        hosts: ["kubernetes.${SECRET_DOMAIN}"]
         ingressClassName: nginx
         path: /
         issuer:

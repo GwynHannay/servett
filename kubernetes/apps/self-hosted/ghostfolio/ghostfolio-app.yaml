@@ -79,10 +79,10 @@ spec:
           gethomepage.dev/icon: ghostfolio.png
           gethomepage.dev/name: Ghostfolio
           gethomepage.dev/widget.type: ghostfolio
-          gethomepage.dev/widget.url: "https://ghost-snap.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.url: "https://ghostfolio.${SECRET_DOMAIN}"
           gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_GHOSTFOLIO}}"
         hosts:
-          - host: &host "ghost-snap.${SECRET_DOMAIN}"
+          - host: &host "ghostfolio.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
