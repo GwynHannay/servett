@@ -10,6 +10,10 @@ resources:
   # - ./ghostfolio/ghostfolio-app.yaml
   - ./homepage/homepage-secrets.sops.yaml
   - ./homepage/homepage-app.yaml
+  - ./joplin/joplin-pvc.yaml
+  - ./joplin/joplin-config.yaml
+  - ./joplin/joplin-secrets.sops.yaml
+  # - ./joplin/joplin-app.yaml
   - ./wallabag/wallabag-pvc.yaml
   - ./wallabag/wallabag-config.yaml
   - ./wallabag/wallabag-secrets.sops.yaml

@@ -1,0 +1,90 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app joplin
+  namespace: &ns self-hosted
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+
+    controllers:
+      main:
+        containers:
+          main:
+            dependsOn:
+              - postgresql
+            image:
+              repository: joplin/server
+              tag: 3.0.1-beta
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: &secrets joplin-secrets
+              - configMapRef:
+                  name: &config joplin-config
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: docker.io/library/postgres
+              tag: 16.1
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+              - configMapRef:
+                  name: *config
+            securityContext:
+              runAsUser: 999
+              allowPrivilegeEscalation: false
+
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Encrypted Notes
+          gethomepage.dev/group: *ns
+          gethomepage.dev/icon: joplin.png
+          gethomepage.dev/name: Joplin
+        hosts:
+          - host: &host "joplin-snap.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+
+    persistence:
+      db:
+        existingClaim: local-joplin
+        advancedMounts:
+          main:
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
