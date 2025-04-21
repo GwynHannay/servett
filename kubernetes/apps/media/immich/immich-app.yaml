@@ -38,6 +38,8 @@ spec:
                   name: &secrets immich-secrets
               - configMapRef:
                   name: &config immich-config
+            env:
+              IMMICH_PORT: '2283'
             resources:
               requests:
                 cpu: 5m
@@ -57,6 +59,8 @@ spec:
                   name: *secrets
               - configMapRef:
                   name: *config
+            env:
+              IMMICH_PORT: '3003'
             resources:
               requests:
                 cpu: 15m
