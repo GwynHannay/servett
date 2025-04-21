@@ -26,6 +26,9 @@ spec:
       main:
         containers:
           main:
+            dependsOn:
+              - postgresql
+              - redis
             image:
               repository: wallabag/wallabag
               tag: 2.6.9

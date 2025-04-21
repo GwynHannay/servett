@@ -13,7 +13,7 @@ resources:
   - ./wallabag/wallabag-pvc.yaml
   - ./wallabag/wallabag-config.yaml
   - ./wallabag/wallabag-secrets.sops.yaml
-  # - ./wallabag/wallabag-app.yaml
+  - ./wallabag/wallabag-app.yaml
 configMapGenerator:
   - name: homepage-gen-config
     files:
