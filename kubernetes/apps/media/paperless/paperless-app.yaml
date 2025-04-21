@@ -108,7 +108,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: internal
+        className: nginx
         annotations:
           nginx.ingress.kubernetes.io/proxy-body-size: 4G
           gethomepage.dev/enabled: "true"
