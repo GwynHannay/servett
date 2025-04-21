@@ -39,7 +39,7 @@ spec:
               - configMapRef:
                   name: &config ghostfolio-config
           
-          postgres:
+          postgresql:
             image: 
               repository: docker.io/library/postgres
               tag: 16
@@ -92,8 +92,10 @@ spec:
 
     persistence:
       main:
-        enabled: true
-        existingClaim: ghostfolio-nfs
-        globalMounts:
-          - path: scripts
+        existingClaim: local-ghostfolio
+        advancedMounts:
+          main:
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
 
