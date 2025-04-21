@@ -133,7 +133,7 @@ spec:
 
     persistence:
       library:
-        existingClaim: nfs-paperless
+        existingClaim: local-paperless
         advancedMounts:
           main:
             main:
