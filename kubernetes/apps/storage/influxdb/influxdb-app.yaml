@@ -54,7 +54,7 @@ spec:
         gethomepage.dev/description: Time Series DB
         gethomepage.dev/group: data
         gethomepage.dev/icon: influxdb.png
-        gethomepage.dev/href: "influxdb.${SECRET_DOMAIN}"
+        gethomepage.dev/href: "https://influxdb.${SECRET_DOMAIN}"
         gethomepage.dev/name: InfluxDB
       hostname: "influxdb.${SECRET_DOMAIN}"
       tls: true
