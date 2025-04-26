@@ -67,6 +67,7 @@ spec:
           gethomepage.dev/widget.url: "https://kopia.${SECRET_DOMAIN}"
           gethomepage.dev/widget.username: "{{HOMEPAGE_VAR_KOPIA_USERNAME}}"
           gethomepage.dev/widget.password: "{{HOMEPAGE_VAR_KOPIA_PASSWORD}}"
+          gethomepage.dev/widget.snapshotPath: "{{HOMEPAGE_VAR_KOPIA_PATH}}"
         hosts:
           - host: &host "kopia.${SECRET_DOMAIN}"
             paths:
