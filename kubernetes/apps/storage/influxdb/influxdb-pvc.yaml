@@ -5,7 +5,7 @@ metadata:
   name: local-influxdb
 spec:
   capacity:
-    storage: 10Gi
+    storage: 100Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -24,12 +24,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-influxdb
-  namespace: system
+  namespace: storage
 spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: ""
   resources:
     requests:
-      storage: 10Gi
+      storage: 100Gi
   volumeName: local-influxdb
