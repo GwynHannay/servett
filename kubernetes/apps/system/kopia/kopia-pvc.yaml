@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tera-kopia
+spec:
+  capacity:
+    storage: 930Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/tera/vols
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tera-kopia
+  namespace: system
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 930Gi
+  volumeName: tera-kopia
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nas-kopia
+spec:
+  capacity:
+    storage: 500Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /mnt/nas/backups
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nas-kopia
+  namespace: system
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 500Gi
+  volumeName: nas-kopia
