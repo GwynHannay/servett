@@ -5,7 +5,7 @@ metadata:
   name: host-glances
 spec:
   capacity:
-    storage: 10Gi
+    storage: 100Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -31,28 +31,34 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 10Gi
+      storage: 100Gi
   volumeName: host-glances
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-glances
+  name: tera-glances
 spec:
   capacity:
-    storage: 5Gi
+    storage: 920Gi
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  nfs:
-    server: "${NAS_HOST}"
-    path: "/mypool/kubernetes/vols"
-  mountOptions:
-    - nfsvers=4.2
+  local:
+    path: /mnt/tera
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-glances
+  name: tera-glances
   namespace: system
 spec:
   accessModes:
@@ -60,5 +66,40 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 5Gi
-  volumeName: nfs-glances
+      storage: 920Gi
+  volumeName: tera-glances
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nas-glances
+spec:
+  capacity:
+    storage: 1020Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/nas
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nas-glances
+  namespace: system
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 1020Gi
+  volumeName: nas-glances
