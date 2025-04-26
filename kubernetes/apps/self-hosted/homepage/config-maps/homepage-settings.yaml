@@ -34,6 +34,11 @@ layout:
     style: row
     columns: 3
     tab: Apps
+  data:
+    icon: mdi-wan
+    style: row
+    columns: 3
+    tab: Apps
   documents:
     icon: mdi-file-document
     style: row

@@ -52,7 +52,7 @@ spec:
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/description: Time Series DB
-        gethomepage.dev/group: data-platform
+        gethomepage.dev/group: data
         gethomepage.dev/icon: influxdb.png
         gethomepage.dev/href: "influxdb.${SECRET_DOMAIN}"
         gethomepage.dev/name: InfluxDB
