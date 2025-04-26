@@ -13,7 +13,7 @@ resources:
   - ./joplin/joplin-pvc.yaml
   - ./joplin/joplin-config.yaml
   - ./joplin/joplin-secrets.sops.yaml
-  # - ./joplin/joplin-app.yaml
+  - ./joplin/joplin-app.yaml
   - ./wallabag/wallabag-pvc.yaml
   - ./wallabag/wallabag-config.yaml
   - ./wallabag/wallabag-secrets.sops.yaml
