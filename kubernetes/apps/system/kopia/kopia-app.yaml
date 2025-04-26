@@ -85,7 +85,7 @@ spec:
         type: configMap
         name: *app
         globalMounts:
-          - path: /repository.config
+          - path: /app/config/repository.config
             subPath: repository.config
       snapshots:
         existingClaim: nas-kopia
