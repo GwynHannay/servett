@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   # - ./glances/
-  - ./kopia/kopia-pvc.yaml
-  - ./kopia/kopia-secrets.sops.yaml
+  - ./kopia/
