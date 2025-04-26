@@ -71,18 +71,18 @@ spec:
           - subPath: glances.conf
             path: /glances/conf/glances.conf
             readOnly: true
-      # local:
-      #   existingClaim: local-glances
-      #   globalMounts:
-      #     - path: /local
-      #       readOnly: true
+      tera:
+        existingClaim: tera-glances
+        globalMounts:
+          - path: /tera
+            readOnly: true
       host:
         existingClaim: host-glances
         globalMounts:
           - path: /host
             readOnly: true
       nas:
-        existingClaim: nfs-glances
+        existingClaim: nas-glances
         globalMounts:
           - path: /nas
             readOnly: true
