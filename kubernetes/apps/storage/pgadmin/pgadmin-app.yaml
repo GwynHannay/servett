@@ -47,7 +47,7 @@ spec:
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: PostgreSQL GUI
-          gethomepage.dev/group: *ns
+          gethomepage.dev/group: data
           gethomepage.dev/icon: pgadmin.png
           gethomepage.dev/name: pgAdmin
         hosts:
