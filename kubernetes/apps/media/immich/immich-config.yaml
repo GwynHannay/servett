@@ -15,6 +15,7 @@ data:
   DB_HOSTNAME: localhost
   DB_DATABASE_NAME: immich
   DB_PORT: '5432'
+  POSTGRES_INITDB_ARGS: '--data-checksums'
   REDIS_HOSTNAME: localhost
   IMMICH_SERVER_URL: http://localhost:2283
   IMMICH_MACHINE_LEARNING_URL: http://localhost:3003
