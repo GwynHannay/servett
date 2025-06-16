@@ -4,6 +4,6 @@ resources:
   - app-template.yaml
   - cert-manager.yaml
   - external-dns.yaml
-  - forked-app-template.yaml
+  # - forked-app-template.yaml
   - ingress-nginx.yaml
   - metallb.yaml
