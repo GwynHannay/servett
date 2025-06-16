@@ -12,8 +12,8 @@ spec:
       version: 2.6.0
       interval: 30m
       sourceRef:
-        kind: HelmRepository
-        name: bjw-s
+        kind: GitRepository
+        name: helm-template
         namespace: flux-system
 
   values:
