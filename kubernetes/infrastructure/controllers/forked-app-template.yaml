@@ -7,7 +7,7 @@ spec:
   interval: 1m
   url: https://github.com/GwynHannay/helm-template
   ref:
-    tag: "2.6.0"
+    branch: "old-version"
   ignore: |
     # exclude all
     /*
