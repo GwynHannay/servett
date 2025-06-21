@@ -5,7 +5,7 @@ namespace: media
 resources:
   - ./namespace.yaml
   - ./calibre/calibre-pvc.yaml
-  # - ./calibre/calibre-app.yaml
+  - ./calibre/calibre-app.yaml
   - ./calibre/calibre-web.yaml
   - ./immich/immich-pvc.yaml
   - ./immich/immich-config.yaml
