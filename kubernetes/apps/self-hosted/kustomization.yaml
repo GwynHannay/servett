@@ -14,6 +14,10 @@ resources:
   - ./joplin/joplin-config.yaml
   - ./joplin/joplin-secrets.sops.yaml
   - ./joplin/joplin-app.yaml
+  - ./readeck/readeck-pvc.yaml
+  - ./readeck/readeck-config.yaml
+  - ./readeck/readeck-secrets.sops.yaml
+  # - ./readeck/readeck-app.yaml
   - ./wallabag/wallabag-pvc.yaml
   - ./wallabag/wallabag-config.yaml
   - ./wallabag/wallabag-secrets.sops.yaml

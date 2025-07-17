@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-readeck
+spec:
+  capacity:
+    storage: 70Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /mnt/tera/vols/readeck
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-readeck
+  namespace: self-hosted
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 70Gi
+  volumeName: local-readeck

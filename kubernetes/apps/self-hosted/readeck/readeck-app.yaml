@@ -1,0 +1,95 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app readeck
+  namespace: &ns self-hosted
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+
+    controllers:
+      main:
+        containers:
+          main:
+            dependsOn:
+              - postgresql
+            image:
+              repository: codeberg.org/readeck/readeck
+              tag: 0.19.2
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: &secrets readeck-secrets
+              - configMapRef:
+                  name: &config readeck-config
+            env:
+              READECK_ALLOWED_HOSTS: &host "readeck.${SECRET_DOMAIN}"
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: docker.io/library/postgres
+              tag: 17
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+              - configMapRef:
+                  name: *config
+            securityContext:
+              runAsUser: 999
+              allowPrivilegeEscalation: false
+
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Bookmarked Articles
+          gethomepage.dev/group: *ns
+          gethomepage.dev/icon: readeck.png
+          gethomepage.dev/name: Readeck
+        hosts:
+          - host: *host
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+
+    persistence:
+      config:
+        existingClaim: local-readeck
+        advancedMounts:
+          main:
+            main:
+              - path: /readeck
+                subPath: config
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
