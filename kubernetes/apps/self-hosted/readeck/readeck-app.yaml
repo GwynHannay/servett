@@ -84,7 +84,7 @@ spec:
               - *host
 
     persistence:
-      config:
+      main:
         existingClaim: local-readeck
         advancedMounts:
           main:
