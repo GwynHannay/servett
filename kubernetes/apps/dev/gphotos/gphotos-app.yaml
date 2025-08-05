@@ -42,7 +42,7 @@ spec:
               tag: 1.17.0-rolling-daily
               pullPolicy: IfNotPresent
             securityContext:
-              runAsUser: 1002
+              runAsUser: 1000
               allowPrivilegeEscalation: false
             envFrom:
               - configMapRef:
