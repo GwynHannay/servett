@@ -29,7 +29,7 @@ spec:
             dependsOn:
               - chrome
             image:
-              repository: davidecavestro/gphotos-cdp
+              repository: ghcr.io/davidecavestro/gphotos-cdp
               tag: v1.3.1
               pullPolicy: IfNotPresent
             envFrom:
