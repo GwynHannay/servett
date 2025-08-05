@@ -17,10 +17,10 @@ spec:
         namespace: flux-system
 
   values:
-    defaultPodOptions:
-      securityContext:
-        fsGroup: 1002
-        fsGroupChangePolicy: "OnRootMismatch"
+    # defaultPodOptions:
+    #   securityContext:
+    #     fsGroup: 1002
+    #     fsGroupChangePolicy: "OnRootMismatch"
 
     controllers:
       main:
@@ -41,8 +41,6 @@ spec:
               repository: kasmweb/chrome
               tag: 1.17.0-rolling-daily
               pullPolicy: IfNotPresent
-            securityContext:
-              runAsUser: 1000
             envFrom:
               - configMapRef:
                   name: *config
