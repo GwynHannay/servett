@@ -43,7 +43,6 @@ spec:
               pullPolicy: IfNotPresent
             securityContext:
               runAsUser: 1000
-              allowPrivilegeEscalation: false
             envFrom:
               - configMapRef:
                   name: *config
