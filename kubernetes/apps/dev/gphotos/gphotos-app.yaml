@@ -33,10 +33,8 @@ spec:
               tag: v1.3.1
               pullPolicy: IfNotPresent
             envFrom:
-              - secretRef:
-                  name: &secrets ghostfolio-secrets
               - configMapRef:
-                  name: &config ghostfolio-config
+                  name: &config gphotos-config
           
           chrome:
             image: 
@@ -44,8 +42,6 @@ spec:
               tag: 1.17.0-rolling-daily
               pullPolicy: IfNotPresent
             envFrom:
-              - secretRef:
-                  name: *secrets
               - configMapRef:
                   name: *config
 
