@@ -46,7 +46,7 @@ spec:
                   name: *config
 
     service:
-      chrome:
+      main:
         ports:
           http:
             port: 6901
@@ -60,7 +60,7 @@ spec:
             paths:
               - path: /
                 service:
-                  name: chrome
+                  name: main
                   port: http
         tls: []
 
