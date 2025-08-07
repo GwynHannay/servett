@@ -26,22 +26,22 @@ spec:
       main:
         containers:
           main:
-            enabled: true
+            enabled: false
             dependsOn:
               - chrome
             image:
               repository: davidecavestro/gphotos-cdp
               tag: latest
               pullPolicy: IfNotPresent
-            # command: '/usr/local/bin/gphotos-cdp'
-            # args:
-            #   - -v 
-            #   - -dev
-            #   - -headless
-            #   - -dldir
-            #   - /download
-            #   - -run
-            #   - /mounted/save.sh
+            command: '/usr/local/bin/gphotos-cdp'
+            args:
+              - -v 
+              - -dev
+              - -headless
+              - -dldir
+              - /download
+              - -run
+              - /mounted/save.sh
             envFrom:
               - configMapRef:
                   name: &config gphotos-config
