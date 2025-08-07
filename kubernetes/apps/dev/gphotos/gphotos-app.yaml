@@ -41,6 +41,8 @@ spec:
               repository: kasmweb/chrome
               tag: 1.17.0-rolling-daily
               pullPolicy: IfNotPresent
+            securityContext:
+              runAsUser: 0
             envFrom:
               - configMapRef:
                   name: *config
