@@ -33,6 +33,8 @@ spec:
               repository: jakewharton/gphotos-sync
               tag: latest
               pullPolicy: IfNotPresent
+            command:
+              - /app/sync.sh
             envFrom:
               - configMapRef:
                   name: &config gphotos-config
