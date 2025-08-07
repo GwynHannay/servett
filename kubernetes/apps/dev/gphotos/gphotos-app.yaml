@@ -50,13 +50,15 @@ spec:
 
     service:
       main:
+        type: LoadBalancer
+        loadBalancerIP: 10.172.90.42
         ports:
           http:
             port: 6901
 
     ingress:
       main:
-        enabled: true
+        enabled: false
         className: nginx
         hosts:
           - host: &host "gphotos.${SECRET_DOMAIN}"
