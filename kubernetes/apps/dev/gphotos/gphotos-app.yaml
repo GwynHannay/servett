@@ -56,6 +56,7 @@ spec:
       main:
         enabled: false
       chrome:
+        enabled: true
         controller: main
         type: LoadBalancer
         loadBalancerIP: 10.172.90.42
