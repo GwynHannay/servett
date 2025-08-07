@@ -53,6 +53,8 @@ spec:
                   name: *config
 
     service:
+      main:
+        enabled: false
       chrome:
         controller: main
         type: LoadBalancer
