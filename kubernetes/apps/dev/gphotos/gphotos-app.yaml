@@ -21,7 +21,7 @@ spec:
       main:
         containers:
           main:
-            enabled: true
+            enabled: false
             dependsOn:
               - chrome
             image:
@@ -83,6 +83,8 @@ spec:
                 subPath: data_gphotos
               - path: /tmp/gphotos-cdp
                 subPath: profile
+              - path: /download
+                subPath: tmp
               - path: /mounted
                 subPath: scripts
             chrome:
