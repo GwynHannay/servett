@@ -21,7 +21,7 @@ spec:
       main:
         containers:
           main:
-            enabled: true
+            enabled: false
             dependsOn:
               - chrome
             image:
@@ -53,25 +53,13 @@ spec:
                   name: *config
 
     service:
-      main:
+      chrome:
+        controller: main
         type: LoadBalancer
         loadBalancerIP: 10.172.90.42
         ports:
           http:
             port: 6901
-
-    ingress:
-      main:
-        enabled: false
-        className: nginx
-        hosts:
-          - host: &host "gphotos.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                service:
-                  name: main
-                  port: http
-        tls: []
 
     persistence:
       main:
