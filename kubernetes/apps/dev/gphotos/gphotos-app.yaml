@@ -55,7 +55,7 @@ spec:
 
     ingress:
       main:
-        enabled: true
+        enabled: false
         className: nginx
         hosts:
           - host: &host "gphotos.${SECRET_DOMAIN}"
