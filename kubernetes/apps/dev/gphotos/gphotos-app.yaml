@@ -26,6 +26,7 @@ spec:
       main:
         containers:
           main:
+            enabled: false
             dependsOn:
               - chrome
             image:
@@ -55,7 +56,7 @@ spec:
 
     ingress:
       main:
-        enabled: false
+        enabled: true
         className: nginx
         hosts:
           - host: &host "gphotos.${SECRET_DOMAIN}"
