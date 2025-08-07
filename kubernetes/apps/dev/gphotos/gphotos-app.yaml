@@ -54,7 +54,7 @@ spec:
 
     service:
       main:
-        enabled: false
+        enabled: true
       chrome:
         enabled: true
         controller: main
