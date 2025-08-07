@@ -82,4 +82,9 @@ spec:
             chrome:
               - path: /home/kasm-user/.config/google-chrome/
                 subPath: profile
+      dshm:
+        enabled: true
+        type: emptyDir
+        medium: Memory
+        sizeLimit: 512mb
 
