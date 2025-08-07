@@ -21,7 +21,7 @@ spec:
       main:
         containers:
           main:
-            enabled: true
+            enabled: false
             dependsOn:
               - chrome
             image:
