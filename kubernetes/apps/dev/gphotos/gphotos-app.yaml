@@ -26,15 +26,22 @@ spec:
       main:
         containers:
           main:
-            enabled: false
+            enabled: true
             dependsOn:
               - chrome
             image:
-              repository: jakewharton/gphotos-sync
+              repository: davidecavestro/gphotos-cdp
               tag: latest
               pullPolicy: IfNotPresent
-            command:
-              - /app/sync.sh
+            command: '/usr/local/bin/gphotos-cdp'
+            args:
+              - -v 
+              - -dev
+              - -headless
+              - -dldir
+              - /download
+              - -run
+              - /mounted/save.sh
             envFrom:
               - configMapRef:
                   name: &config gphotos-config
@@ -81,6 +88,8 @@ spec:
                 subPath: data_gphotos
               - path: /tmp/gphotos-cdp
                 subPath: profile
+              - path: /mounted
+                subPath: scripts
             chrome:
               - path: /home/kasm-user/.config/google-chrome/
                 subPath: profile
