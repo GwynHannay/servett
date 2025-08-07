@@ -50,6 +50,8 @@ spec:
 
     service:
       main:
+        enabled: false
+      chrome:
         ports:
           http:
             port: 6901
@@ -63,7 +65,7 @@ spec:
             paths:
               - path: /
                 service:
-                  name: main
+                  name: chrome
                   port: http
         tls: []
 
