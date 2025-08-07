@@ -84,7 +84,7 @@ spec:
         advancedMounts:
           main:
             main:
-              - path: /download
+              - path: /dest
                 subPath: data_gphotos
               - path: /tmp/gphotos-cdp
                 subPath: profile

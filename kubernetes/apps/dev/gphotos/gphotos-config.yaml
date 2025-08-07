@@ -7,6 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: gphotos
 data:
+  DEST_DIR: /dest
   LAUNCH_URL: "https://photos.google.com/"
   APP_ARGS: "--no-sandbox"
   VNCOPTIONS: "-disableBasicAuth"
