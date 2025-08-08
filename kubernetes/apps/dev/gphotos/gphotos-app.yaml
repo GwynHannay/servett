@@ -45,21 +45,21 @@ spec:
                   exec:
                     command:
                       - cat
-                      - /dest/healthy
+                      - /test/healthy
               readiness:
                 custom: true
                 spec:
                   exec:
                     command:
                       - cat
-                      - /dest/healthy
+                      - /test/healthy
               startup:
                 custom: true
                 spec:
                   exec:
                     command:
                       - cat
-                      - /dest/healthy
+                      - /test/healthy
 
     service:
       main:
@@ -84,4 +84,6 @@ spec:
                 subPath: tmp
               - path: /mounted
                 subPath: scripts
+              - path: /test
+                subPath: test_data
 
