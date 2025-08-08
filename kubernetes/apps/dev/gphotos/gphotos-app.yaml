@@ -46,7 +46,7 @@ spec:
         loadBalancerIP: 10.172.90.43
         ports:
           http:
-            port: 3301
+            port: 6901
 
     persistence:
       main:
