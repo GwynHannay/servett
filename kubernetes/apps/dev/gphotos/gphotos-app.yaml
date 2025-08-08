@@ -38,6 +38,28 @@ spec:
             envFrom:
               - configMapRef:
                   name: &config gphotos-config
+            probes:
+              liveness:
+                custom: true
+                spec:
+                  exec:
+                    command:
+                      - cat
+                      - /dest/healthy
+              readiness:
+                custom: true
+                spec:
+                  exec:
+                    command:
+                      - cat
+                      - /dest/healthy
+              startup:
+                custom: true
+                spec:
+                  exec:
+                    command:
+                      - cat
+                      - /dest/healthy
 
     service:
       main:
