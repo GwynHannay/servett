@@ -1,0 +1,62 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app gphotos-chrome
+  namespace: &ns dev
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image: 
+              repository: kasmweb/chrome
+              tag: 1.17.0-rolling-daily
+              pullPolicy: IfNotPresent
+            securityContext:
+              runAsUser: 0
+            envFrom:
+              - configMapRef:
+                  name: gphotos-config
+
+    service:
+      main:
+        enabled: true
+        controller: main
+        type: LoadBalancer
+        loadBalancerIP: 10.172.90.42
+        primary: true
+        ports:
+          http:
+            port: 6901
+
+    persistence:
+      main:
+        existingClaim: local-chrome
+        advancedMounts:
+          main:
+            main:
+              - path: /home/kasm-user/.config/google-chrome/
+                subPath: profile
+      dshm:
+        enabled: true
+        type: emptyDir
+        medium: Memory
+        sizeLimit: 512Mi
+        advancedMounts:
+          main:
+            chrome:
+              - path: /dev/shm
+

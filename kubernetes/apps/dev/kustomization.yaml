@@ -6,4 +6,5 @@ resources:
   - ./namespace.yaml
   - ./gphotos/gphotos-pvc.yaml
   - ./gphotos/gphotos-config.yaml
+  - ./gphotos/chrome-app.yaml
   # - ./gphotos/gphotos-app.yaml
