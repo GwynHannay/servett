@@ -57,6 +57,6 @@ spec:
         sizeLimit: 1024Mi
         advancedMounts:
           main:
-            chrome:
+            main:
               - path: /dev/shm
 
