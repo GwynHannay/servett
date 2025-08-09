@@ -23,7 +23,7 @@ spec:
           main:
             image: 
               repository: kasmweb/chrome
-              tag: 1.17.0
+              tag: 1.17.0-rolling-weekly
               pullPolicy: IfNotPresent
             securityContext:
               runAsUser: 0
