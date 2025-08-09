@@ -23,7 +23,7 @@ spec:
           main:
             image: 
               repository: kasmweb/chrome
-              tag: 1.17.0-rolling-daily
+              tag: 1.17.0
               pullPolicy: IfNotPresent
             securityContext:
               runAsUser: 0
@@ -54,7 +54,7 @@ spec:
         enabled: true
         type: emptyDir
         medium: Memory
-        sizeLimit: 512Mi
+        sizeLimit: 1024Mi
         advancedMounts:
           main:
             chrome:
