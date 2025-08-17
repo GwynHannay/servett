@@ -29,7 +29,6 @@ spec:
             command: '/usr/local/bin/gphotos-cdp'
             args:
               - -v
-              - -x 
               - -dev
               - -headless
               - -dldir
