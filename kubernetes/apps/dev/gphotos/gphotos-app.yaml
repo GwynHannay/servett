@@ -28,6 +28,7 @@ spec:
               pullPolicy: IfNotPresent
             command: '/usr/local/bin/gphotos-cdp'
             args:
+              - -v
               - -x 
               - -dev
               - -headless
