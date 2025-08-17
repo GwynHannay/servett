@@ -77,7 +77,7 @@ spec:
           main:
             main:
               - path: /dest
-                subPath: test_gphotos
+                subPath: photos
               - path: /tmp/gphotos-cdp
                 subPath: profile
               - path: /download
