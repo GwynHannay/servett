@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: dev
 resources:
   - ./namespace.yaml
-  - ./gphotos/gphotos-pvc.yaml
-  - ./gphotos/gphotos-config.yaml
-  - ./gphotos/chrome-app.yaml
-  - ./gphotos/gphotos-app.yaml
+  # - ./gphotos/gphotos-pvc.yaml
+  # - ./gphotos/gphotos-config.yaml
+  # - ./gphotos/chrome-app.yaml
+  # - ./gphotos/gphotos-app.yaml
