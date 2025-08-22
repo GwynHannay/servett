@@ -24,6 +24,7 @@ spec:
             image: 
               repository: kasmweb/chrome
               tag: 1.17.0-rolling-daily
+              pullPolicy: Always
             securityContext:
               runAsUser: 0
             envFrom:
