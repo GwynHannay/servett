@@ -31,7 +31,7 @@ spec:
               - redis
             image:
               repository: ghostfolio/ghostfolio
-              tag: 2.193.0
+              tag: 2.195.0
               pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
