@@ -136,12 +136,17 @@
         icon: /icons/nab.png
         href: {{HOMEPAGE_VAR_NAB_URL}}
         description: Physical Branch
+- house:
+    - Inventory Management:
+        icon: /icons/inventory.png
+        href: {{HOMEPAGE_VAR_INVENTORY_MANAGEMENT_URL}}
+        description: Household Items / Stock
 - health:
     - Medicare:
         icon: /icons/medicare.png
         href: {{HOMEPAGE_VAR_MEDICARE_URL}}
         description: Healthcare (via myGov)
-    - CSIRO Recipes:
-        icon: /icons/csiro.png
-        href: {{HOMEPAGE_VAR_RECIPES_URL}}
-        description: Static Recipes Page
+    - GU Health:
+        icon: /icons/guhealth.png
+        href: {{HOMEPAGE_VAR_GUHEALTH_URL}}
+        description: Private Health

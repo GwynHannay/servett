@@ -49,6 +49,11 @@ layout:
     style: row
     columns: 4
     tab: Links
+  house:
+    icon: mdi-house
+    style: row
+    columns: 4
+    tab: Links
   health:
     icon: mdi-heart-pulse
     style: row
