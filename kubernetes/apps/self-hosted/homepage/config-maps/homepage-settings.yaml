@@ -50,7 +50,7 @@ layout:
     columns: 4
     tab: Links
   house:
-    icon: mdi-house
+    icon: mdi-home-search
     style: row
     columns: 4
     tab: Links
