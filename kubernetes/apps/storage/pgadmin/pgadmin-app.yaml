@@ -32,7 +32,7 @@ spec:
               pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
-                  name: pgadmin-secrets
+                  name: &secrets pgadmin-secrets
           
           postgresql:
             name: postgresql
