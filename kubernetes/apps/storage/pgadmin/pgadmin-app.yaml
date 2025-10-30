@@ -33,6 +33,19 @@ spec:
             envFrom:
               - secretRef:
                   name: pgadmin-secrets
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: docker.io/library/postgres
+              tag: 16.1
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+            securityContext:
+              runAsUser: 999
+              allowPrivilegeEscalation: false
 
     service:
       main:
@@ -67,3 +80,12 @@ spec:
         existingClaim: local-pgadmin
         globalMounts:
           - path: /var/lib/pgadmin
+      db:
+        enabled: true
+        existingClaim: local-pgadmindb
+        advancedMounts:
+          main:
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
+        
