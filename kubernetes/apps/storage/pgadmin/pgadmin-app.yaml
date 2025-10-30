@@ -37,8 +37,8 @@ spec:
           postgresql:
             name: postgresql
             image:
-              repository: docker.io/library/postgres
-              tag: 16.1
+              repository: ghcr.io/immich-app/postgres
+              tag: 16-vectorchord0.3.0-pgvectors0.2.1
               pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
