@@ -12,6 +12,7 @@ data:
   # App
   IMMICH_ENV: "production"
   IMMICH_LOG_LEVEL: "verbose"
+  IMMICH_VERSION: "v2"
   DB_HOSTNAME: localhost
   DB_DATABASE_NAME: immich
   DB_PORT: '5432'

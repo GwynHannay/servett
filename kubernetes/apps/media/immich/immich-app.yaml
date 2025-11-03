@@ -33,7 +33,7 @@ spec:
               - redis
             image:
               repository: ghcr.io/immich-app/immich-server
-              tag: &tag v2.2.1
+              tag: &tag v2.2.2
               pullPolicy: IfNotPresent
             envFrom:
               - secretRef:
