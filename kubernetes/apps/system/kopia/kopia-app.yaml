@@ -28,7 +28,7 @@ spec:
           main:
             image:
               repository: kopia/kopia
-              tag: 0.21.1
+              tag: 0.22.3
               pullPolicy: IfNotPresent
             command: kopia
             args:
