@@ -81,6 +81,7 @@ spec:
           gethomepage.dev/widget.type: ghostfolio
           gethomepage.dev/widget.url: "https://ghostfolio.${SECRET_DOMAIN}"
           gethomepage.dev/widget.key: "{{HOMEPAGE_VAR_GHOSTFOLIO}}"
+          gethomepage.dev/widget.fields: ["gross_percent_1y", "gross_percent_max", "net_worth"]
         hosts:
           - host: &host "ghostfolio.${SECRET_DOMAIN}"
             paths:
