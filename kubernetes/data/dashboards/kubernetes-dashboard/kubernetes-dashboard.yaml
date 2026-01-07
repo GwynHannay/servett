@@ -40,7 +40,7 @@ spec:
         ingressClassName: nginx
         path: /
         issuer:
-          name: letsencrypt-staging
+          name: letsencrypt-production
           scope: cluster
     nginx:
       enabled: false
