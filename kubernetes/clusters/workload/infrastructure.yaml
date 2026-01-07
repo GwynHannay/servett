@@ -151,12 +151,4 @@ spec:
         group: kustomize.toolkit.fluxcd.io
         kind: Kustomization
         labelSelector: substitution.flux.home.arpa/disabled notin (true)
-    - patch: |-
-        - op: replace
-          path: /spec/values/controller/extraArgs/default-ssl-certificate
-          value: "ingress-nginx/letsencrypt-wildcard-cert-staging"
-      target:
-        group: helm.toolkit.fluxcd.io
-        kind: HelmRelease
-        labelSelector: substitution.flux.home.arpa/disabled notin (true)
   prune: true
