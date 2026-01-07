@@ -1,0 +1,74 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: kubernetes-dashboard
+  namespace: dashboards
+spec:
+  interval: 24h
+  url: https://kubernetes.github.io/dashboard
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kubernetes-dashboard
+  namespace: dashboards
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: kubernetes-dashboard
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-dashboard
+        namespace: dashboards
+      interval: 12h
+  values:
+    app:
+      ingress:
+        enabled: true
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/description: Dashboard
+          gethomepage.dev/group: monitoring
+          gethomepage.dev/icon: kubernetes-dashboard.png
+          gethomepage.dev/name: Kubernetes Dashboard
+          gethomepage.dev/weight: "10"
+          gethomepage.dev/href: "https://workdash.${SECRET_DOMAIN}/#/workloads?namespace=_all"
+        hosts: ["workdash.${SECRET_DOMAIN}"]
+        ingressClassName: nginx
+        path: /
+        issuer:
+          name: letsencrypt-staging
+          scope: cluster
+    nginx:
+      enabled: false
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kube-dashboard-admin-user
+  namespace: dashboards
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kube-dashboard-admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kube-dashboard-admin-user
+  namespace: dashboards
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kube-dashboard-admin-user
+  namespace: dashboards
+  annotations:
+    kubernetes.io/service-account.name: "kube-dashboard-admin-user"   
+type: kubernetes.io/service-account-token
