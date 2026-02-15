@@ -36,9 +36,9 @@ spec:
             resources:
               requests:
                 cpu: 15m
-                memory: 128Mi
+                memory: 300Mi
               limits:
-                memory: 512Mi
+                memory: 3000Mi
           
           postgresql:
             name: postgresql
