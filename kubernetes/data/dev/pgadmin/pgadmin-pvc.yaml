@@ -1,0 +1,70 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-local-pgadmin
+spec:
+  capacity:
+    storage: 20Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/tera/vols/iris/pgadmin
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - iris
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dev-local-pgadmin
+  namespace: dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 20Gi
+  volumeName: dev-local-pgadmin
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-local-pgadmindb
+spec:
+  capacity:
+    storage: 30Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/tera/vols/iris/pgadmindb
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - iris
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dev-local-pgadmindb
+  namespace: dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 30Gi
+  volumeName: dev-local-pgadmindb

@@ -1,0 +1,91 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pgadmin
+  namespace: dev
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 30m
+
+  values:
+    defaultPodOptions:
+      securityContext:
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: dpage/pgadmin4
+              tag: 9.12
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: &secrets pgadmin-secrets
+            resources:
+              requests:
+                cpu: 15m
+                memory: 300Mi
+              limits:
+                memory: 3000Mi
+          
+          postgresql:
+            name: postgresql
+            image:
+              repository: ghcr.io/immich-app/postgres
+              tag: 16-vectorchord0.3.0-pgvectors0.2.1
+              pullPolicy: IfNotPresent
+            envFrom:
+              - secretRef:
+                  name: *secrets
+            securityContext:
+              runAsUser: 999
+              allowPrivilegeEscalation: false
+
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+
+    ingress:
+      main:
+        enabled: true
+        className: nginx
+        hosts:
+          - host: &host "db.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  name: main
+                  port: http
+        tls:
+          - hosts:
+              - *host
+
+    persistence:
+      config:
+        enabled: true
+        existingClaim: dev-local-pgadmin
+        globalMounts:
+          - path: /var/lib/pgadmin
+      db:
+        enabled: true
+        existingClaim: dev-local-pgadmindb
+        advancedMounts:
+          main:
+            postgresql:
+              - path: /var/lib/postgresql/data
+                subPath: pgdata
+        
