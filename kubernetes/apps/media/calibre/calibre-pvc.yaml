@@ -34,3 +34,38 @@ spec:
     requests:
       storage: 50Gi
   volumeName: local-calibre
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nas-calibre
+spec:
+  capacity:
+    storage: 20Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/nas/_ingestion/calibre
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - elite
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nas-calibre
+  namespace: media
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 20Gi
+  volumeName: nas-calibre

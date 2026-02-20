@@ -40,9 +40,10 @@ spec:
 
     ingress:
       main:
-        enabled: true
+        enabled: false
         className: nginx
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-staging"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/description: eBook Library Admin
           gethomepage.dev/group: self-hosted
@@ -63,7 +64,12 @@ spec:
         enabled: true
         existingClaim: local-calibre
         globalMounts:
-          - path: config
-            subPath: core
-          - path: library
+          - path: /calibre-library
             subPath: library
+          - path: /config
+            subPath: web
+      ingestion:
+        enabled: true
+        existingClaim: nas-calibre
+        globalMounts:
+          - path: /cwa-book-ingest
