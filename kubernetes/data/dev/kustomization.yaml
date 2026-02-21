@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./pgadmin/pgadmin-secrets.sops.yaml
+  - ./pgadmin/pgadmin-secrets.sops.yaml
+  # - ./pgadmin/pgadmin-app.yaml
