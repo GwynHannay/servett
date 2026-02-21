@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /mnt/tera/vols/iris/pgadmin
+    path: /home/iris/vols/pgadmin
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -45,7 +45,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /mnt/tera/vols/iris/pgadmindb
+    path: /home/iris/vols/pgadmindb
   nodeAffinity:
     required:
       nodeSelectorTerms:
