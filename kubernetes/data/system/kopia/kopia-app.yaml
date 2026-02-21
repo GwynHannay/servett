@@ -46,6 +46,15 @@ spec:
             envFrom:
               - secretRef:
                   name: kopia-secrets
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 1Gi
 
     service:
       main:
