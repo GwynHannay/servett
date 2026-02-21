@@ -91,3 +91,14 @@ spec:
       vols:
         readOnly: true
         existingClaim: local-kopia
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          kopia:
+            app:
+              - path: /config/cache
+                subPath: cache
+              - path: /config/logs
+                subPath: logs
+              - path: /tmp
+                subPath: tmp
