@@ -93,3 +93,9 @@ spec:
       vols:
         readOnly: true
         existingClaim: tera-kopia
+      local:
+        enabled: true
+        existingClaim: local-kopia
+        globalMounts:
+          - path: /app/cache
+            subPath: cache
