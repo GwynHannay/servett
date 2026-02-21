@@ -5,4 +5,4 @@ resources:
   - ./namespace.yaml
   - ./pgadmin/pgadmin-pvc.yaml
   - ./pgadmin/pgadmin-secrets.sops.yaml
-  # - ./pgadmin/pgadmin-app.yaml
+  - ./pgadmin/pgadmin-app.yaml
