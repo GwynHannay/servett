@@ -19,22 +19,33 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        fsGroup: 1002
-        fsGroupChangePolicy: "OnRootMismatch"
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1002
+        fsGroup: 1002
+        fsGroupChangePolicy: "OnRootMismatch"
+        supplementalGroups: [1000]
+        seccompProfile: { type: RuntimeDefault }
 
     controllers:
       main:
         containers:
           main:
             image:
-              repository: ghcr.io/home-operations/kopia
+              repository: kopia/kopia
               tag: 0.22.3
               pullPolicy: IfNotPresent
+            command: kopia
             args:
+              - server
+              - start
+              - --insecure
+              - --address
+              - 0.0.0.0:80
               - --without-password
+              - --log-level
+              - debug
+              - --disable-csrf-token-checks
             env:
               KOPIA_WEB_ENABLED: true
               KOPIA_WEB_PORT: &port 80
@@ -90,8 +101,9 @@ spec:
         type: configMap
         name: *app
         globalMounts:
-          - path: /config/repository.config
+          - path: /app/config/repository.config
             subPath: repository.config
+            readOnly: true
       snapshots:
         existingClaim: nas-kopia
       vols:
@@ -102,9 +114,9 @@ spec:
         advancedMounts:
           kopia:
             app:
-              - path: /config/cache
+              - path: /app/cache
                 subPath: cache
-              - path: /config/logs
+              - path: /app/logs
                 subPath: logs
               - path: /tmp
-                subPath: tmp
+                subPath: tmp:shared
