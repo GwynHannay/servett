@@ -30,21 +30,14 @@ spec:
         containers:
           main:
             image:
-              repository: kopia/kopia
+              repository: ghcr.io/home-operations/kopia
               tag: 0.22.3
               pullPolicy: IfNotPresent
-            command: kopia
             args:
-              - server
-              - start
-              - --insecure
-              - --address
-              - 0.0.0.0:80
               - --without-password
-              - --log-level
-              - debug
-              - --disable-csrf-token-checks
             env:
+              KOPIA_WEB_ENABLED: true
+              KOPIA_WEB_PORT: &port 80
               TZ: "${TIMEZONE}"
             envFrom:
               - secretRef:
@@ -63,7 +56,7 @@ spec:
       main:
         ports:
           http:
-            port: 80
+            port: *port
 
     ingress:
       main:
