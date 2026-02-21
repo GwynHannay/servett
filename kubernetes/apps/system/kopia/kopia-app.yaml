@@ -85,9 +85,8 @@ spec:
               - *host
 
     persistence:
-      config:
+      config-file:
         enabled: true
-        readOnly: true
         type: configMap
         name: *app
         globalMounts:
