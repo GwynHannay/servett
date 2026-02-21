@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: dev-local-pgadmin
+  name: local-pgadmin
 spec:
   capacity:
     storage: 20Gi
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: dev-local-pgadmin
+  name: local-pgadmin
   namespace: dev
 spec:
   accessModes:
@@ -32,12 +32,12 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  volumeName: dev-local-pgadmin
+  volumeName: local-pgadmin
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: dev-local-pgadmindb
+  name: local-pgadmindb
 spec:
   capacity:
     storage: 30Gi
@@ -58,7 +58,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: dev-local-pgadmindb
+  name: local-pgadmindb
   namespace: dev
 spec:
   accessModes:
@@ -67,4 +67,4 @@ spec:
   resources:
     requests:
       storage: 30Gi
-  volumeName: dev-local-pgadmindb
+  volumeName: local-pgadmindb
