@@ -77,12 +77,12 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: dev-local-pgadmin
+        existingClaim: local-pgadmin
         globalMounts:
           - path: /var/lib/pgadmin
       db:
         enabled: true
-        existingClaim: dev-local-pgadmindb
+        existingClaim: local-pgadmindb
         advancedMounts:
           main:
             postgresql:
