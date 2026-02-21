@@ -46,6 +46,15 @@ spec:
             envFrom:
               - secretRef:
                   name: kopia-secrets
+            probes:
+              startup:
+                enabled: true
+                custom: false
+                spec:
+                  initialDelaySeconds: 0
+                  timeoutSeconds: 1
+                  failureThreshold: 30
+                  periodSeconds: 20
 
     service:
       main:
