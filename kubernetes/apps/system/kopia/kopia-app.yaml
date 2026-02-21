@@ -19,13 +19,8 @@ spec:
   values:
     defaultPodOptions:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1002
         fsGroup: 1002
         fsGroupChangePolicy: "OnRootMismatch"
-        supplementalGroups: [1000]
-        seccompProfile: { type: RuntimeDefault }
 
     controllers:
       main:
@@ -53,10 +48,6 @@ spec:
             envFrom:
               - secretRef:
                   name: kopia-secrets
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 10m
