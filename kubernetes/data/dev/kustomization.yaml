@@ -5,7 +5,7 @@ resources:
   - ./namespace.yaml
   - ./pgadmin/pgadmin-pvc.yaml
   - ./pgadmin/pgadmin-secrets.sops.yaml
-  # - ./pgadmin/pgadmin-app.yaml
+  - ./pgadmin/pgadmin-app.yaml
   - ./postgresql/postgresql-pvc.yaml
   - ./postgresql/postgresql-secrets.sops.yaml
   # - ./postgresql/postgresql-app.yaml
