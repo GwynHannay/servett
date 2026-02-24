@@ -45,7 +45,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /nas/pgadmin
+    path: /mnt/nas/pgadmin
   nodeAffinity:
     required:
       nodeSelectorTerms:
