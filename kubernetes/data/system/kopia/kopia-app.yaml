@@ -75,7 +75,7 @@ spec:
 
     persistence:
       config:
-        enabled: false
+        enabled: true
         readOnly: true
         type: configMap
         name: *app
