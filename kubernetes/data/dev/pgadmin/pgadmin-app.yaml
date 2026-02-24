@@ -39,19 +39,6 @@ spec:
                 memory: 300Mi
               limits:
                 memory: 3000Mi
-          
-          postgresql:
-            name: postgresql
-            image:
-              repository: ghcr.io/immich-app/postgres
-              tag: 16-vectorchord0.3.0-pgvectors0.2.1
-              pullPolicy: IfNotPresent
-            envFrom:
-              - secretRef:
-                  name: *secrets
-            securityContext:
-              runAsUser: 999
-              allowPrivilegeEscalation: false
 
     service:
       main:
@@ -80,12 +67,4 @@ spec:
         existingClaim: local-pgadmin
         globalMounts:
           - path: /var/lib/pgadmin
-      db:
-        enabled: true
-        existingClaim: nas-pgadmin
-        advancedMounts:
-          main:
-            postgresql:
-              - path: /var/lib/postgresql/data
-                subPath: pgdata
         
