@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: local-pgadmindb
+  name: nas-pgadmin
 spec:
   capacity:
     storage: 30Gi
@@ -45,7 +45,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   local:
-    path: /home/iris/vols/pgadmindb
+    path: /nas/pgadmin
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -58,7 +58,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: local-pgadmindb
+  name: nas-pgadmin
   namespace: dev
 spec:
   accessModes:
@@ -67,4 +67,4 @@ spec:
   resources:
     requests:
       storage: 30Gi
-  volumeName: local-pgadmindb
+  volumeName: nas-pgadmindb

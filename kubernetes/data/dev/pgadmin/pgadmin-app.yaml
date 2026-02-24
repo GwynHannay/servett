@@ -82,7 +82,7 @@ spec:
           - path: /var/lib/pgadmin
       db:
         enabled: true
-        existingClaim: local-pgadmindb
+        existingClaim: nas-pgadmin
         advancedMounts:
           main:
             postgresql:
