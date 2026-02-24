@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nas-postgresql
+  name: local-postgresql
 spec:
   capacity:
     storage: 30Gi
@@ -11,7 +11,7 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /mnt/nas/postgresql
+    path: /home/iris/vols/postgresql
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nas-postgresql
+  name: local-postgresql
   namespace: dev
 spec:
   accessModes:
@@ -33,4 +33,4 @@ spec:
   resources:
     requests:
       storage: 30Gi
-  volumeName: nas-postgresql
+  volumeName: local-postgresql
