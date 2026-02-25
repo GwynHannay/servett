@@ -99,7 +99,7 @@ spec:
         existingClaim: tera-kopia
         globalMounts:
           - path: /vols
-            readOnly" true
+            readOnly: true
       tmpfs:
         type: emptyDir
         advancedMounts:
