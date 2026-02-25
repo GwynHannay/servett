@@ -42,8 +42,6 @@ spec:
               - debug
               - --disable-csrf-token-checks
             env:
-              KOPIA_WEB_ENABLED: true
-              KOPIA_WEB_PORT: &port 80
               TZ: "${TIMEZONE}"
             envFrom:
               - secretRef:
@@ -87,7 +85,7 @@ spec:
               - *host
 
     persistence:
-      config-file:
+      config:
         enabled: true
         type: configMap
         name: *app
@@ -98,8 +96,10 @@ spec:
       snapshots:
         existingClaim: nas-kopia
       vols:
-        accessMode: ReadOnlyMany
         existingClaim: tera-kopia
+        globalMounts:
+          - path: /vols
+            readOnly" true
       tmpfs:
         type: emptyDir
         advancedMounts:
