@@ -90,7 +90,6 @@ spec:
       config-file:
         enabled: true
         type: configMap
-        name: *app
         globalMounts:
           - path: /app/config/repository.config
             subPath: repository.config
@@ -98,7 +97,7 @@ spec:
       snapshots:
         existingClaim: nas-kopia
       vols:
-        readOnly: true
+        accessMode: ReadOnlyMany
         existingClaim: tera-kopia
       tmpfs:
         type: emptyDir
