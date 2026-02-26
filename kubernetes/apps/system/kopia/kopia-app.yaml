@@ -70,6 +70,7 @@ spec:
           gethomepage.dev/group: widgets
           gethomepage.dev/icon: kopia.png
           gethomepage.dev/name: Kopia
+          gethomepage.dev/weight: "5"
           gethomepage.dev/widget.type: kopia
           gethomepage.dev/widget.url: "https://kopia.${SECRET_DOMAIN}"
           gethomepage.dev/widget.username: "{{HOMEPAGE_VAR_KOPIA_USERNAME}}"

@@ -44,11 +44,16 @@ spec:
         className: nginx
         annotations:
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/description: eBook Library Admin
-          gethomepage.dev/group: self-hosted
-          gethomepage.dev/icon: calibre.png
+          gethomepage.dev/description: eBook Browser
+          gethomepage.dev/group: widgets
+          gethomepage.dev/icon: calibre-web.png
           gethomepage.dev/name: Calibre
-          gethomepage.dev/weight: "50"
+          gethomepage.dev/weight: "15"
+          gethomepage.dev/widget.type: calibreweb
+          gethomepage.dev/widget.url: "https://calibre.${SECRET_DOMAIN}"
+          gethomepage.dev/widget.username: "{{HOMEPAGE_VAR_CALIBRE_USER}}"
+          gethomepage.dev/widget.password: "{{HOMEPAGE_VAR_CALIBRE_PASS}}"
+          gethomepage.dev/widget.fields: '["books", "authors", "series"]'
         hosts:
           - host: &host "calibre.${SECRET_DOMAIN}"
             paths:
