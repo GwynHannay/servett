@@ -29,38 +29,38 @@ layout:
     style: row
     columns: 3
     tab: Admin
-  hosts:
-    icon: mdi-wan
-    style: row
-    columns: 3
-    tab: Admin
   documents:
     icon: mdi-file-document
     style: row
     columns: 4
     tab: Admin
-  data:
-    icon: mdi-sitemap
+  hosts:
+    icon: mdi-wan
     style: row
     columns: 3
-    tab: Common
+    tab: Admin
+  health:
+    icon: mdi-heart-pulse
+    style: row
+    columns: 4
+    tab: Admin
+  mediarr-files:
+    icon: mdi-projector
+    style: row
+    columns: 4
+    tab: Admin
   banking:
     icon: mdi-credit-card
     style: row
     columns: 4
     tab: Common
+  data:
+    icon: mdi-sitemap
+    style: row
+    columns: 3
+    tab: Common
   house:
     icon: mdi-home-search
-    style: row
-    columns: 4
-    tab: Common
-  health:
-    icon: mdi-heart-pulse
-    style: row
-    columns: 4
-    tab: Common
-  mediarr-files:
-    icon: mdi-projector
     style: row
     columns: 4
     tab: Common
