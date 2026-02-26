@@ -6,12 +6,12 @@
         description: Printer & Scanner
     - EliteDesk:
         icon: vmware-esxi.png
-        href: {{HOMEPAGE_VAR_ESXI_URL}}
+        href: {{HOMEPAGE_VAR_ELITE_URL}}
         description: homesys ESXi
-    - Servett:
+    - Iris:
         icon: vmware-esxi.png
-        href: {{HOMEPAGE_VAR_SERVETT_URL}}
-        description: servett ESXi
+        href: {{HOMEPAGE_VAR_IRIS_URL}}
+        description: iris ESXi
     - Peter HP:
         icon: vmware-esxi.png
         href: {{HOMEPAGE_VAR_HP_ESXI_URL}}
@@ -150,3 +150,8 @@
         icon: /icons/guhealth.png
         href: {{HOMEPAGE_VAR_GUHEALTH_URL}}
         description: Private Health
+- data:
+    - pgAdmin:
+        icon: pgadmin.png
+        href: {{HOMEPAGE_VAR_IRIS_PGADMIN}}
+        description: PostgreSQL GUI
