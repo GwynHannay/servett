@@ -34,15 +34,15 @@ layout:
     style: row
     columns: 3
     tab: Admin
-  data:
-    icon: mdi-sitemap
-    style: row
-    columns: 3
-    tab: Admin
   documents:
     icon: mdi-file-document
     style: row
     columns: 4
+    tab: Admin
+  data:
+    icon: mdi-sitemap
+    style: row
+    columns: 3
     tab: Common
   banking:
     icon: mdi-credit-card
