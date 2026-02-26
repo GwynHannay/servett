@@ -6,6 +6,3 @@ resources:
   - ./influxdb/influxdb-pvc.yaml
   - ./influxdb/influxdb-secrets.sops.yaml
   - ./influxdb/influxdb-app.yaml
-  - ./pgadmin/pgadmin-pvc.yaml
-  - ./pgadmin/pgadmin-secrets.sops.yaml
-  - ./pgadmin/pgadmin-app.yaml
