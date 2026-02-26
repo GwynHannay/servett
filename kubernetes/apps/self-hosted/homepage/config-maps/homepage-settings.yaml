@@ -28,39 +28,39 @@ layout:
     icon: mdi-glasses
     style: row
     columns: 3
-    tab: Apps
+    tab: Admin
   hosts:
     icon: mdi-wan
     style: row
     columns: 3
-    tab: Apps
+    tab: Admin
   data:
     icon: mdi-sitemap
     style: row
     columns: 3
-    tab: Apps
+    tab: Admin
   documents:
     icon: mdi-file-document
     style: row
     columns: 4
-    tab: Links
+    tab: Common
   banking:
     icon: mdi-credit-card
     style: row
     columns: 4
-    tab: Links
+    tab: Common
   house:
     icon: mdi-home-search
     style: row
     columns: 4
-    tab: Links
+    tab: Common
   health:
     icon: mdi-heart-pulse
     style: row
     columns: 4
-    tab: Links
+    tab: Common
   mediarr-files:
     icon: mdi-projector
     style: row
     columns: 4
-    tab: Links
+    tab: Common
