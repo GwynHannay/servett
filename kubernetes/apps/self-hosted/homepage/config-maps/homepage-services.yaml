@@ -25,10 +25,6 @@
         href: {{HOMEPAGE_VAR_WIFI_URL}}
         description: WiFi
 - documents:
-    - Online Orders:
-        icon: mdi-mailbox-#34A853
-        href: {{HOMEPAGE_VAR_ORDERS_URL}}
-        description: Tracking Orders
     - Inventory:
         icon: mdi-archive-#F99A66
         href: {{HOMEPAGE_VAR_INVENTORY_URL}}
@@ -116,6 +112,10 @@
         href: {{HOMEPAGE_VAR_NAS_URL}}
         description: NAS Files
 - banking:
+    - Online Orders:
+        icon: mdi-mailbox-#34A853
+        href: {{HOMEPAGE_VAR_ORDERS_URL}}
+        description: Tracking Orders
     - ING Bank:
         icon: /icons/ing.png
         href: {{HOMEPAGE_VAR_ING_URL}}
