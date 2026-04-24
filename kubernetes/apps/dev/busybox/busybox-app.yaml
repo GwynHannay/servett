@@ -17,6 +17,12 @@ spec:
         namespace: flux-system
 
   values:
+    defaultPodOptions:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 0
+    
     controllers:
       main:
         containers:
@@ -26,6 +32,10 @@ spec:
               tag: 1.37.0
               pullPolicy: Always
             command: ['/my-script.sh']
+            securityContext:
+              privileged: true
+              capabilities:
+                drop: ["ALL"]
 
     service:
       main:
