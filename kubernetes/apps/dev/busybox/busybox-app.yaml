@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app busybox
+  namespace: &ns dev
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.6.0
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image: 
+              repository: busybox
+              tag: 1.37.0
+              pullPolicy: Always
+            command: ['/my-script.sh']
+
+    service:
+      main:
+        enabled: false
+
+    persistence:
+      main:
+        existingClaim: local-busybox
+        advancedMounts:
+          main:
+            main:
+              - path: /mnt/tera
+      config:
+        enabled: true
+        type: configMap
+        name: busybox-config
+

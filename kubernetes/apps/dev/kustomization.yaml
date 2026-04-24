@@ -8,3 +8,4 @@ resources:
   # - ./gphotos/gphotos-config.yaml
   # - ./gphotos/chrome-app.yaml
   # - ./gphotos/gphotos-app.yaml
+  - ./busybox/busybox-pvc.yaml
