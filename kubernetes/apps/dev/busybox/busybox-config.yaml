@@ -8,7 +8,6 @@ metadata:
     app.kubernetes.io/name: busybox
 data:
   my-script.sh: |
-    #!/usr/bin/env bash
     while true; do
       echo "hello world!"
       sleep 60
