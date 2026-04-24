@@ -42,4 +42,7 @@ spec:
         enabled: true
         type: configMap
         name: busybox-config
+        globalMounts:
+          - subPath: my-script.sh
+            path: /my-script.sh
 
