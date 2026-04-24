@@ -52,6 +52,7 @@ spec:
         enabled: true
         type: configMap
         name: busybox-config
+        defaultMode: 0555
         globalMounts:
           - subPath: my-script.sh
             path: /my-script.sh
