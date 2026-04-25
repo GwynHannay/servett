@@ -31,7 +31,10 @@ spec:
               repository: busybox
               tag: 1.37.0
               pullPolicy: Always
-            args: [sh, -c, 'echo "LOL";']
+            # args: [sh, -c, 'echo "LOL";']
+            command:
+              - sleep
+              - "3600"
             securityContext:
               privileged: true
               capabilities:
