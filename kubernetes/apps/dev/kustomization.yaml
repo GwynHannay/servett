@@ -9,4 +9,4 @@ resources:
   # - ./gphotos/chrome-app.yaml
   # - ./gphotos/gphotos-app.yaml
   - ./busybox/busybox-pvc.yaml
-  # - ./busybox/busybox-app.yaml
+  - ./busybox/busybox-app.yaml

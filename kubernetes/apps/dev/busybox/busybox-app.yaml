@@ -31,7 +31,7 @@ spec:
               repository: busybox
               tag: 1.37.0
               pullPolicy: Always
-            command: ['/my-script.sh']
+            args: [sh, -c, 'echo "LOL";']
             securityContext:
               privileged: true
               capabilities:
@@ -48,12 +48,4 @@ spec:
           main:
             main:
               - path: /mnt/tera
-      config:
-        enabled: true
-        type: configMap
-        name: busybox-config
-        defaultMode: 0555
-        globalMounts:
-          - subPath: my-script.sh
-            path: /my-script.sh
 
