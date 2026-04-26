@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: system
 resources:
   # - ./kopia-app.yaml
-  # - ./kopia-pvc.yaml
+  - ./kopia-pvc.yaml
   - ./kopia-secrets.sops.yaml
 configMapGenerator:
   - name: kopia

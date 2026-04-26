@@ -8,7 +8,7 @@ spec:
     storage: 60Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   local:
     path: /home/iris/vols
   nodeAffinity:
@@ -27,7 +27,7 @@ metadata:
   namespace: system
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
   storageClassName: ""
   resources:
     requests:
@@ -43,7 +43,7 @@ spec:
     storage: 500Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   local:
     path: /mnt/nas/backups
@@ -63,7 +63,7 @@ metadata:
   namespace: system
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: ""
   resources:
     requests:
