@@ -85,7 +85,6 @@ spec:
       snapshots:
         existingClaim: nas-kopia
       vols:
-        readOnly: true
         existingClaim: local-kopia
       tmpfs:
         type: emptyDir
