@@ -37,3 +37,7 @@ spec:
   values:
     rbac:
       create: true
+    frr-k8s:
+      prometheus:
+        serviceMonitor:
+          enabled: false
