@@ -160,6 +160,7 @@
         icon: kopia.png
         description: Iris Backups
         weight: "6"
+        href: {{HOMEPAGE_VAR_IRIS_KOPIA}}
         widget:
             type: kopia
             url: {{HOMEPAGE_VAR_IRIS_KOPIA}}
