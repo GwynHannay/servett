@@ -137,6 +137,10 @@
         href: {{HOMEPAGE_VAR_NAB_URL}}
         description: Physical Branch
 - house:
+    - Prescription Tracking:
+        icon: mdi-prescription
+        href: {{HOMEPAGE_VAR_PRESCRIPTIONS_URL}}
+        description: eScript Tokens, Repeats, Dates
     - Inventory Management:
         icon: /icons/inventory.png
         href: {{HOMEPAGE_VAR_INVENTORY_MANAGEMENT_URL}}
