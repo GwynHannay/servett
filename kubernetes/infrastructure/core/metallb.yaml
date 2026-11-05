@@ -28,7 +28,7 @@ spec:
   chart:
     spec:
       chart: metallb
-      version: "*"
+      version: 0.16.1
       sourceRef:
         kind: HelmRepository
         name: metallb
